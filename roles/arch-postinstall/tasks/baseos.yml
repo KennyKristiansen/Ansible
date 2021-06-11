@@ -4,7 +4,6 @@
   pacman: name={{ item }}
     with_items:
       - ansible
-      - audacity
       - bash-completion
       - bridge-utils
       - chromium
@@ -23,7 +22,6 @@
       - lm_sensors
       - lsof
       - mc
-      - mumble
       - ncdu
       - networkmanager
       - nmap
@@ -38,14 +36,10 @@
       - reptyr
       - rsnapshot
       - screen
-      - skype
-      - skype-call-recorder
       - sl
       - smbclient
-      - steam
       - strace
       - sudo
-      - teamspeak3
       - tmux
       - tree
       - vagrant
@@ -60,6 +54,5 @@
       - wpa_supplicant
       - xf86-video-intel
       - yaourt
-      - youtube-dl
     tags:
       - packages
