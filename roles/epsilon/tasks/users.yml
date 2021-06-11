@@ -1,6 +1,6 @@
 ---
-- name: create user alex
+- name: create user kenny
   user:
-    name: alex
+    name: kenny
     state: present
     groups: "sudo,docker"
