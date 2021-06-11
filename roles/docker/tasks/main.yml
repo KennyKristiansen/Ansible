@@ -1,4 +1,9 @@
 ---
+- name: install python3
+  apt:
+    name: "python3"
+    update_cache: yes
+
 - name: install packages required by docker
   apt:
     name: "apt-transport-https"
