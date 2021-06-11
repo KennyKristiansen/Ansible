@@ -4,9 +4,5 @@
 
 - hosts: all
   sudo: true
-
   roles:
-    - docker
-    - mergerfs
-    - snapraid
-    - epsilon
+    - arch-postinstall
