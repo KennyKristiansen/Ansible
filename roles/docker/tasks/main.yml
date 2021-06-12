@@ -1,39 +1,39 @@
 ---
-- name: install python3
-  apt:
-    name: "python3"
-    update_cache: yes
 
-- name: install packages required by docker
-  apt:
-    name: "apt-transport-https"
-    state: present
-    update_cache: yes
+  - name: Install aptitude using apt
+    apt: name=aptitude state=latest update_cache=yes force_apt_get=yes
 
-- name: add docker repository key
-  apt_key:
-    id: "{{ apt_key_sig }}"
-    url: "{{ apt_key_url }}"
-    state: present
-  register: add_repository_key
-  ignore_errors: true
+  - name: Install required system packages
+    apt: name={{ item }} state=latest update_cache=yes
+    loop: [ 'apt-transport-https', 'ca-certificates', 'curl', 'software-properties-common', 'python3-pip', 'virtualenv', 'python3-setuptools']
 
-- name: add docker repository and update apt cache
-  apt_repository:
-    repo: "{{ apt_repository }}"
-    update_cache: yes
-    state: present
+  - name: Add Docker GPG apt Key
+    apt_key:
+      url: https://download.docker.com/linux/ubuntu/gpg
+      state: present
 
-- name: install (or update) docker package
-  apt:
-    name: "docker-engine"
-    state: "{{ 'latest' if update_docker_package else 'present' }}"
-    update_cache: yes
-  notify:
-    - systemd daemon-reload
-    - restart docker service
+  - name: Add Docker Repository
+    apt_repository:
+      repo: deb https://download.docker.com/linux/ubuntu bionic stable
+      state: present
 
-- name: start docker
-  service:
-    name: docker
-    state: started
+  - name: Update apt and install docker-ce
+    apt: update_cache=yes name=docker-ce state=latest
+
+  - name: Install Docker Module for Python
+    pip:
+      name: docker
+
+  - name: Pull default Docker image
+    docker_image:
+      name: "ubuntu"
+      source: pull
+
+  # Creates the number of containers defined by the variable create_containers, using values from vars file
+  - name: Create default containers
+    docker_container:
+      name: "docker"
+      image: "ubuntu"
+      command: "sleep 1d"
+      state: present
+    with_sequence: count=1
