@@ -6,7 +6,7 @@ mntpoints:
 #  - disk4
 #  - disk5
 #  - parity1
-#  - storage
+  - storage
 
 dockeruser: dockeruser
 dockergroup: dockergroup
