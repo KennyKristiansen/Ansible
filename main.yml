@@ -1,5 +1,6 @@
 ---
 # ansible-playbook main.yml -i hosts --tags docker_apps -K
+# ansible-playbook main.yml -i hosts -K --connection=local
 # the binary | this.file | -i targets | *optional --tags | -K asks for sudo pass
 
 - hosts: all
