@@ -2,8 +2,5 @@
 epsilon
 
 [epsilon:vars]
-<<<<<<< HEAD
 ansible_python_interpreter=/usr/bin/python3
-=======
-ansible_python_interpreter=/usr/bin/python3
->>>>>>> e2b29b86f7c77ae1408759bdfa26dd7a2395bed4
+ansible_connection: local
