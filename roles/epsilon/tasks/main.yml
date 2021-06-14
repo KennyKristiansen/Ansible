@@ -1,8 +1,8 @@
 ---
 # epsilon specific setup
-- name: configure base-os
-  include: base-os.yml
-  when: base-os
+- name: configure baseos
+  include: baseos.yml
+  when: baseos
   tags: baseos
 
 - name: configure network file sharing

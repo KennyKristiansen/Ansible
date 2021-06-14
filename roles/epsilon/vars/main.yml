@@ -1,12 +1,12 @@
 ---
 mntpoints:
   - disk1
-  - disk2
-  - disk3
-  - disk4
-  - disk5
-  - parity1
-  - storage
+#  - disk2
+#  - disk3
+#  - disk4
+#  - disk5
+#  - parity1
+#  - storage
 
 dockeruser: dockeruser
 dockergroup: dockergroup
