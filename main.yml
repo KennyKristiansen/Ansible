@@ -10,3 +10,4 @@
     - mergerfs
 #    - snapraid
     - epsilon
+    - docker-compose
