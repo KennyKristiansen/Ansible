@@ -50,9 +50,10 @@
     src: "{{ item.src }}"
     fstype: "{{ item.fs }}"
     # change to 'mounted' to auto mount
-    state: mounted
+    state: present
   with_items:
      - { name: /mnt/disk1, src: /dev/sda, fs: xfs}
+#       /dev/disk/by-id/ata-ST12000NE0008-2JL101_ZHZ75XEV
  #   - { name: /mnt/parity1, src: /dev/disk/by-id/ata-WDC_WD60EZRZ-00GZ5B1_WD-WXN1H8449UPL-part1, fs: ext4}
  #   - { name: /mnt/parity2, src: /dev/disk/by-id/ata-WDC_WD80EZZX-11CSGA0_VK0U9B3Y-part1, fs: ext4}
  #   - { name: /mnt/retired.disk2, src: /dev/disk/by-id/ata-Hitachi_HDS5C3030ALA630_MJ1311YNG5SD3A-part1, fs: xfs}
@@ -68,4 +69,4 @@
     opts: direct_io,defaults,allow_other,minfreespace=50G,fsname=mergerfs
     fstype: fuse.mergerfs
     # change to 'mounted' to auto mount
-    state: mounted
+    state: present
