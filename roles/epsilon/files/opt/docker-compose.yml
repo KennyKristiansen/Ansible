@@ -117,7 +117,7 @@ services:
       - /opt/appdata/smokeping/config:/config
       - /opt/appdata/smokeping/data:/data
     ports:
-      - 27025:80
+      - 27025:81
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
@@ -148,8 +148,13 @@ services:
     restart: unless-stopped
     hostname: ${DOCKERHOSTNAME}
     volumes:
-      - /opt/appdata/libresonic:/config
+      - /opt/appdata/airsonic:/config
       - /mnt/storage/music/flac:/music/flac
+      - /opt/appdata/airsonic/var/playlists:/var/playlists
+      - /opt/appdata/airsonic/var/podcasts:/var/podcasts
+      - /opt/appdata/airsonic/var/airsonic:/var/airsonic
+      - /opt/appdata/airsonic/var/music:/var/music
+
     environment:
      - PGID=${PGID}
      - PUID=${PUID}
@@ -165,6 +170,8 @@ services:
       - 8086:8086
     volumes:
       - /opt/appdata/influxdb:/var/lib/influxdb
+      - /opt/appdata/influxdb:/var/lib/influxdb2
+      - /opt/appdata/influxdb/etc:/etc/influxdb2
     restart:
       always
 
