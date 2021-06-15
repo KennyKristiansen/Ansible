@@ -1,38 +1,61 @@
----
+---  
+  
+# UPGRADE AND INSTALL REQUIRED UBUNTU PACKAGES
+- name: Update apt cache
+  apt: update_cache=yes cache_valid_time=3600
 
-- name: install packets (1)
-    apt:
-      name:
-      - apt-transport-https
-      - ca-certificates
-      - curl
-      - gnupg-agent
-      - software-properties-common
-      - vim
-      - haveged
-    
-- name: Refresh cache
-  apt:
-  update_cache: yes
+- name: Upgrade all apt packages
+  apt: upgrade=dist
 
-- name: Update distro
-  apt:
-  name: "*"
-  state: latest
+- name: Install dependencies
+  apt: name={{ item }} state=latest update_cache=yes
+  loop: ['apt-transport-https', 'ca-certificates', 'curl', 'software-properties-common', 'gnupg-agent']
 
-- name: Update all packages to the latest version
-  apt:
-  upgrade: dist    
+# DOCKER INSTALLATION
+- name: Add an apt signing key for Docker
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
 
-- name: install packets (2)
-  apt:
-  pkg:
-    - docker-ce
-    - docker-ce-cli
-    - containerd.io
+- name: Add apt repository for stable version
+  apt_repository:
+    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable
+    state: present
 
-- name: install docker compose    
+- name: Install Docker
+  apt: name={{ item }} state=latest update_cache=yes
+  loop: ['docker-ce', 'docker-ce-cli', 'containerd.io']
+
+- name: Add user to docker group
+  user:
+    name: "{{ansible_user}}"
+    group: docker
+
+- name: Download docker-compose {{ docker_compose_version }}
   get_url:
-  url: https://github.com/docker/compose/releases/download/1.29.2/docker-compose-Linux-x86_64
-  dest: /usr/local/bin/docker-compose
-  mode: 755
+    url: https://github.com/docker/compose/releases/download/1.29.2/docker-compose-Darwin-x86_64
+    dest: ~/docker-compose
+    mode: "+x"
+
+- name: Check docker-compose exists
+  stat: path=~/docker-compose
+  register: docker_compose
+
+- name: Move docker-compose to /usr/local/bin/docker-compose
+  command: mv ~/docker-compose /usr/local/bin/docker-compose
+  when: docker_compose.stat.exists
+
+# REQUIRED PACKAGES FOR USING ANSIBLE DOCKER (for portainer installation below)
+- name: Install related Ubuntu packages
+  apt: name={{ item }} state=latest update_cache=yes
+  loop: ['python3-pip', 'mc']
+
+- name: Install python packages
+  pip:
+    name: docker-compose
+
+
+- name: Docker-compose build
+  docker_compose:
+    project_src: "/opt"
+  register: output

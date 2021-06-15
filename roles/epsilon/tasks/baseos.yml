@@ -5,35 +5,33 @@
     upgrade: full
     cache_valid_time: 300
 
-- name: install packages
-  apt:
-    pkg:
-      - bash-completion
-      - curl
-      - exiftool
-      - fuse
-      - glances
-      - git
-      - htop
-      - iftop
-      - iotop
-      - jq
-      - lynx
-      - mc
-      - ncdu
-      - nmap
-      - openssh-server
-      - python
-      - reptyr
-      - screen
-      - smartmontools
-      - sudo
-      - tmux
-      - tree
-      - wget
-      - xfsprogs
-    state: present
-
+- name: Install system packages
+  apt: name={{ item }} state=present update_cache=yes
+  loop: [ 'bash-completion',
+    'curl',
+    'exiftool',
+    'fuse',
+    'glances',
+    'git',
+    'htop',
+    'iftop',
+    'iotop',
+    'jq',
+    'lynx',
+    'mc',
+    'wget',
+    'xfsprogs',
+    'openssh-server',
+    'ncdu',
+    'nmap',
+    'python',
+    'reptyr',
+    'screen',
+    'smartmontools',
+    'sudo',
+    'tree',
+    'tmux',
+    'containerd.io']
 
 - name: create /mnt points
   file:
