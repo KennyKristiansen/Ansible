@@ -13,6 +13,7 @@ services:
       - PLEX_CLAIM="nope"
       - PUID=${PUID}
       - PGID=${PGID}
+
   plexpy:
     image: linuxserver/plexpy
     container_name: plexpy
@@ -29,6 +30,7 @@ services:
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
+
   nzbget:
     image: linuxserver/nzbget
     container_name: nzbget
@@ -42,6 +44,7 @@ services:
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
+
   sonarr:
     image: linuxserver/sonarr
     container_name: sonarr
@@ -60,80 +63,7 @@ services:
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
-  couchpotato:
-    image: linuxserver/couchpotato
-    container_name: couchpotato
-    depends_on:
-      - nzbget
-    volumes:
-      - /opt/appdata/couchpotato:/config
-      - /mnt/disk1/downloads/complete/movies:/downloads
-      - /mnt/storage/movies:/movies
-    ports:
-      - 27022:5050
-    links:
-      - nzbget
-    restart: always
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-  unifi:
-    image: linuxserver/unifi
-    container_name: unifi
-    network_mode: host
-    volumes:
-      - /opt/appdata/unifi:/config
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-  deluge:
-    image: linuxserver/deluge
-    container_name: deluge
-    network_mode: host
-    volumes:
-      - /opt/appdata/deluge:/config
-      - /mnt/disk1/downloads:/downloads
-      - /mnt/storage:/mnt/storage
-    restart: always
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-  sync:
-    image: linuxserver/resilio-sync
-    container_name: sync
-    volumes:
-      - /opt/appdata/sync:/config
-      - /mnt/storage:/sync
-    ports:
-      - 27028:8888
-      - 55555:55555
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-    restart: always
-  smokeping:
-    image: linuxserver/smokeping
-    container_name: smokeping
-    volumes:
-      - /opt/appdata/smokeping/config:/config
-      - /opt/appdata/smokeping/data:/data
-    ports:
-      - 27025:80
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-    restart: always
-  quassel:
-    image: linuxserver/quassel-core
-    container_name: quassel
-    volumes:
-      - /opt/appdata/quassel:/config
-    ports:
-      - 27023:4242
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-    restart: always
+      
   radarr:
     image: linuxserver/radarr
     container_name: radarr
@@ -148,6 +78,47 @@ services:
       - PGID=${PGID}
     restart:
       always
+
+  deluge:
+    image: linuxserver/deluge
+    container_name: deluge
+    network_mode: host
+    volumes:
+      - /opt/appdata/deluge:/config
+      - /mnt/disk1/downloads:/downloads
+      - /mnt/storage:/mnt/storage
+    restart: always
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+
+  sync:
+    image: linuxserver/resilio-sync
+    container_name: sync
+    volumes:
+      - /opt/appdata/sync:/config
+      - /mnt/storage:/sync
+    ports:
+      - 27028:8888
+      - 55555:55555
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+    restart: always
+
+  smokeping:
+    image: linuxserver/smokeping
+    container_name: smokeping
+    volumes:
+      - /opt/appdata/smokeping/config:/config
+      - /opt/appdata/smokeping/data:/data
+    ports:
+      - 27025:80
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+    restart: always
+
   letsencrypt:
     image: linuxserver/letsencrypt
     container_name: letsencrypt
@@ -160,38 +131,28 @@ services:
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
-      - EMAIL=some@email.com
+      - EMAIL=kennykristiansen@hotmail.com
       - URL=domain.tld
       - SUBDOMAINS=one,sub,domain,comma,separated
       - ONLY_SUBDOMAINS=true
       - DHLEVEL=4096
       - TZ=Europe/London
-  libresonic:
-    image: linuxserver/libresonic
-    container_name: libresonic
-    ports:
-      - 4040:4040
+
+  airsonic-advanced:
+    image: airsonicadvanced/airsonic-advanced:latest
+    restart: unless-stopped
+    hostname: ${DOCKERHOSTNAME}
     volumes:
       - /opt/appdata/libresonic:/config
       - /mnt/storage/music/flac:/music/flac
     environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - CONTEXT_PATH=sonic
-    restart:
-      always
-  ghost:
-    image: ghost
-    container_name: ghost
-    ports:
-      - "127.0.0.1:2368:2368"
-    environment:
-      - NODE_ENV=production
-      - url=https://blog.ktz.me
-    volumes:
-      - /opt/appdata/blog-ktz:/var/lib/ghost/content
-    restart:
-      always
+     - PGID=${PGID}
+     - PUID=${PUID}
+     - TZ=${TZ}
+     - CONTEXT_PATH=/music
+     - JAVA_OPTS=-Dserver.use-forward-headers=true
+
+
   influxdb:
     image: influxdb:latest
     container_name: influxdb
@@ -202,6 +163,7 @@ services:
       - /opt/appdata/influxdb:/var/lib/influxdb
     restart:
       always
+
   grafana:
     image: grafana/grafana
     container_name: grafana
@@ -212,3 +174,20 @@ services:
       - /opt/appdata/grafana:/var/lib/grafana
     restart:
       always
+
+  plex-meta-manager:
+    image: meisnate12/plex-meta-manager
+    stdin_open: true # docker run -i 
+    tty: true        # docker run -t
+
+    hostname: ${DOCKERHOSTNAME}
+    command: -c /config/config.yml -t 03:00
+    environment:
+     - PGID=${PGID}
+     - PUID=${PUID}
+     - TZ=${TZ}
+    container_name: plex-meta-manager
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /opt/appdata/plex-meta-manager:/config:rw
+      - /mnt/storage:/storage
