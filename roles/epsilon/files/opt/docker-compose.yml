@@ -48,8 +48,6 @@ services:
   sonarr:
     image: linuxserver/sonarr
     container_name: sonarr
-    depends_on:
-      - nzbget
     volumes:
       - /opt/appdata/sonarr:/config
       - /mnt/storage/tv:/tv
