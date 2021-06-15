@@ -79,6 +79,23 @@ services:
     restart:
       always
 
+  rutorrent:
+    image: linuxserver/rutorrent
+    container_name: rutorrent
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+    volumes:
+      - /opt/appdata/rutorrent/config:/config
+      - /mnt/disk1/downloads:/downloads
+      - /mnt/storage:/mnt/storage
+    ports:
+      - 80:80
+      - 5000:5000
+      - 51413:51413
+      - 6881:6881/udp
+    restart: unless-stopped
+
   deluge:
     image: linuxserver/deluge
     container_name: deluge
@@ -89,8 +106,6 @@ services:
       - /mnt/storage:/mnt/storage
     restart: always
     environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
 
   sync:
     image: linuxserver/resilio-sync
@@ -152,7 +167,6 @@ services:
      - CONTEXT_PATH=/music
      - JAVA_OPTS=-Dserver.use-forward-headers=true
 
-
   influxdb:
     image: influxdb:latest
     container_name: influxdb
@@ -191,3 +205,56 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /opt/appdata/plex-meta-manager:/config:rw
       - /mnt/storage:/storage
+
+  bazarr:
+    image: ghcr.io/linuxserver/bazarr
+    container_name: bazarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - /opt/appdata/bazarr/config:/config
+      - /mnt/storage/movies:/movies #optional
+      - /mnt/storage/tv:/tv #optional
+    ports:
+      - 6767:6767
+    restart: unless-stopped
+
+  jackett:
+    image: ghcr.io/linuxserver/jackett
+    container_name: jackett
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+      - AUTO_UPDATE=true #optional
+      - RUN_OPTS=<run options here> #optional
+    volumes:
+      - /opt/jackett/config:/config
+      - /mnt/disk1/downloads:/downloads
+    ports:
+      - 9117:9117
+    restart: unless-stopped
+
+  portainer:
+    image: portainer/portainer-ce:2.0.0
+    command: -H unix:///var/run/docker.sock
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /opt/appdata/portainer/data:/data
+
+  nzbhydra2:
+    image: ghcr.io/linuxserver/nzbhydra2
+    container_name: nzbhydra2
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - /opt/nzbhydra2/config:/config
+      - /mnt/disk1/downloads:/downloads
+    ports:
+      - 5076:5076
+    restart: unless-stopped
