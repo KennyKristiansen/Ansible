@@ -1,5 +1,6 @@
 ---
-  - name: install packets (1)
+
+- name: install packets (1)
     apt:
       name:
       - apt-transport-https
@@ -10,28 +11,28 @@
       - vim
       - haveged
     
-  - name: Refresh cache
-    apt:
-    update_cache: yes
+- name: Refresh cache
+  apt:
+  update_cache: yes
 
-  - name: Update distro
-    apt:
-    name: "*"
-    state: latest
+- name: Update distro
+  apt:
+  name: "*"
+  state: latest
 
-  - name: Update all packages to the latest version
-    apt:
-    upgrade: dist    
+- name: Update all packages to the latest version
+  apt:
+  upgrade: dist    
 
-  - name: install packets (2)
-    apt:
-    pkg:
+- name: install packets (2)
+  apt:
+  pkg:
     - docker-ce
     - docker-ce-cli
     - containerd.io
 
-  - name: install docker compose    
-    get_url:
-    url: https://github.com/docker/compose/releases/download/1.29.2/docker-compose-Linux-x86_64
-    dest: /usr/local/bin/docker-compose
-    mode: 755
+- name: install docker compose    
+  get_url:
+  url: https://github.com/docker/compose/releases/download/1.29.2/docker-compose-Linux-x86_64
+  dest: /usr/local/bin/docker-compose
+  mode: 755
