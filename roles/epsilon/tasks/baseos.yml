@@ -69,7 +69,7 @@
     # change to 'mounted' to auto mount
     state: present
 
--name: "1. Uninstall HTTPD/Apache"
+- name: "1. Uninstall HTTPD/Apache"
   tags: uninstall_apache
   yum:
     name: httpd
