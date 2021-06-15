@@ -54,7 +54,7 @@ services:
       - /mnt/disk1/downloads/complete/tv:/downloads
       - /mnt/storage/downloads/complete/tv_import:/tv_import
     ports:
-      - 27021:8989
+      - 8989:8989
     links:
       - nzbget
     restart: always
