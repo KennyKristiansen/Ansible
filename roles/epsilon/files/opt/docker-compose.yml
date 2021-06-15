@@ -96,17 +96,6 @@ services:
       - 6881:6881/udp
     restart: unless-stopped
 
-  deluge:
-    image: linuxserver/deluge
-    container_name: deluge
-    network_mode: host
-    volumes:
-      - /opt/appdata/deluge:/config
-      - /mnt/disk1/downloads:/downloads
-      - /mnt/storage:/mnt/storage
-    restart: always
-    environment:
-
   sync:
     image: linuxserver/resilio-sync
     container_name: sync
@@ -155,6 +144,7 @@ services:
 
   airsonic-advanced:
     image: airsonicadvanced/airsonic-advanced:latest
+    container_name: airsonicadvanced
     restart: unless-stopped
     hostname: ${DOCKERHOSTNAME}
     volumes:
@@ -238,6 +228,7 @@ services:
     restart: unless-stopped
 
   portainer:
+    container_name: portainer
     image: portainer/portainer-ce:2.0.0
     command: -H unix:///var/run/docker.sock
     restart: always
