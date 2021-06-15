@@ -54,6 +54,10 @@
   pip:
     name: docker-compose
 
+- name: Tear down Docker services
+  docker_compose:
+    project_src: "/opt"
+    state: absent
 
 - name: Docker-compose build
   docker_compose:
