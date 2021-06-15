@@ -46,7 +46,7 @@ services:
       - PGID=${PGID}
 
   sonarr:
-    image: linuxserver/sonarr
+    image: ghcr.io/linuxserver/sonarr
     container_name: sonarr
     volumes:
       - /opt/appdata/sonarr:/config
