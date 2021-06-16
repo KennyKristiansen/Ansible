@@ -33,16 +33,9 @@
     'tmux',
     'containerd.io']
     
-- name: Create a new raid 0 stripe zpool
-  zpool:
-    name: zfspool
-    devices:
-      - /dev/sdb
-    raid_level: none
-    l2arc: /dev/sdg
-    vdev: 1
-    ashift: 12
-    state: present
+- name: Create zpool
+    command: zpool create -O compression=gzip zpool /dev/sdb -o ashift=12 -O    secondarycache=all
+             creates=/zpool
 
 
 - name: create /mnt points
