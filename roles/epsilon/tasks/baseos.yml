@@ -37,7 +37,6 @@
     command: zpool create -O compression=gzip zpool /dev/sdb -o ashift=12 -O    secondarycache=all
              creates=/zpool
 
-
 - name: create /mnt points
   file:
     dest: "/mnt/{{ item }}"
