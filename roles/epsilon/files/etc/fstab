@@ -7,7 +7,7 @@
 # <file system> <mount point>   <type>  <options>       <dump>  <pass>
 # / was on /dev/sda1 during installation
 
-/dev/dbb                                                           /mnt/disk1 ext4 defaults 0 2
-/dev/dbc                                                          /mnt/storage ext4 defaults 0 2
+/dev/sdb                                                           /mnt/disk1 ext4 defaults 0 2
+/dev/sdc                                                          /mnt/storage ext4 defaults 0 2
 
 /mnt/disk* /mnt/storage fuse.mergerfs defaults,allow_other,minfreespace=50G,fsname=mergerfs 0 0

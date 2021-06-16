@@ -44,11 +44,11 @@
 
 - name: mount disks
   mount:
-    name: "{{ item.name }}"
+    path: "{{ item.name }}"
     src: "{{ item.src }}"
     fstype: "{{ item.fs }}"
     # change to 'mounted' to auto mount
-    state: present
+    state: mounted
   with_items:
      - { name: /mnt/disk1, src: /dev/sdb, fs: xfs}
 #       /dev/disk/by-id/ata-ST12000NE0008-2JL101_ZHZ75XEV
@@ -67,7 +67,7 @@
     opts: direct_io,defaults,allow_other,minfreespace=50G,fsname=mergerfs
     fstype: fuse.mergerfs
     # change to 'mounted' to auto mount
-    state: present
+    state: mounted
 
 - name: "1. Uninstall HTTPD/Apache"
   tags: uninstall_apache
