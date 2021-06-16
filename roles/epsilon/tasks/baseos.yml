@@ -33,10 +33,6 @@
     'tmux',
     'containerd.io']
     
-- name: Create zpool
-    command: zpool create -O compression=gzip zpool /dev/sdb -o ashift=12 -O    secondarycache=all
-             creates=/zpool
-
 - name: create /mnt points
   file:
     dest: "/mnt/{{ item }}"
@@ -62,7 +58,7 @@
  #   - { name: /mnt/disk3, src: /dev/disk/by-id/ata-WDC_WD30EFRX-68AX9N0_WD-WCC1T0632015-part1, fs: xfs}
  #   - { name: /mnt/disk4, src: /dev/disk/by-id/ata-TOSHIBA_DT01ACA300_X3544DGKS-part1, fs: xfs}
  #   - { name: /mnt/disk5, src: /dev/disk/by-id/ata-WDC_WD30EFRX-68AX9N0_WD-WMC1T0074096-part1, fs: xfs}
-     - { name: /mnt/storage, src: /dev/sdc, fs: ext4}
+     - { name: /mnt/storage, src: /dev/sdb, fs: ext4}
 
 - name: mount mergerfs array
   mount:
