@@ -32,6 +32,18 @@
     'tree',
     'tmux',
     'containerd.io']
+    
+- name: Create a new raid 0 stripe zpool
+  zpool:
+    name: zfspool
+    devices:
+      - /dev/sdb
+    raid_level: none
+    l2arc: /dev/sdg
+    vdev: 1
+    ashift: 12
+    state: present
+
 
 - name: create /mnt points
   file:
@@ -50,7 +62,7 @@
     # change to 'mounted' to auto mount
     state: mounted
   with_items:
-     - { name: /mnt/disk1, src: ata-ST12000NE0008-2JL101_ZHZ75XEV-part1, fs: ext4}
+     - { name: /mnt/disk1, src: sdb, fs: ext4}
 #       /dev/disk/by-id/ata-ST12000NE0008-2JL101_ZHZ75XEV
  #   - { name: /mnt/parity1, src: /dev/disk/by-id/ata-WDC_WD60EZRZ-00GZ5B1_WD-WXN1H8449UPL-part1, fs: ext4}
  #   - { name: /mnt/parity2, src: /dev/disk/by-id/ata-WDC_WD80EZZX-11CSGA0_VK0U9B3Y-part1, fs: ext4}
