@@ -54,21 +54,21 @@
 
 - name: mount sdb
   mount:
-    path: /mnt/disk1
+    path: /mnt/storage
     src: /dev/sdb
     fstype: "ext4"
     opts: "errors=remount-ro,noatime,user_xattr,acl"
     # change to 'mounted' to auto mount
     state: present
 
-- name: mount sdc
-  mount:
-    path: /mnt/storage
-    src: /dev/sdc
-    fstype: ext4
-    opts: "errors=remount-ro,noatime,user_xattr,acl"
-    # change to 'mounted' to auto mount
-    state: present
+#- name: mount sdc
+#  mount:
+#    path: /mnt/storage
+#    src: /dev/sdc
+#    fstype: ext4
+#    opts: "errors=remount-ro,noatime,user_xattr,acl"
+#    # change to 'mounted' to auto mount
+#    state: present
 
 #- name: mount mergerfs array
 #  mount:
