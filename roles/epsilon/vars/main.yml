@@ -1,6 +1,6 @@
 ---
 mntpoints:
-  - disk1
+#  - disk1
 #  - disk2
 #  - disk3
 #  - disk4
@@ -12,7 +12,7 @@ dockeruser: dockeruser
 dockergroup: dockergroup
 
 appdata: /opt/appdata
-downloaddir: /mnt/disk1/downloads
+downloaddir: /mnt/storage/downloads
 dockerlist: /opt/docker.list
 
 snapraidconf: /etc/snapraid.conf
@@ -25,7 +25,7 @@ snap_run_command: "python2 {{ snap_run_bin }} -c {{ snap_run_conf}}"
 
 mount_options:
   "/home": "defaults"
-  "/mnt/disk1": "defaults"
+#  "/mnt/disk1": "defaults"
   "/mnt/storage": "defaults,allow_other,minfreespace=50G,fsname=mergerfs"
 
 snapshot_command: "rsnapshot -c /etc/rsnapshot.conf"

@@ -37,8 +37,8 @@ services:
     container_name: nzbget
     volumes:
       - /opt/appdata/nzbget/config:/config
-      - /mnt/disk1/downloads:/downloads
-      - /mnt/disk1/downloads/complete:/downloads/complete
+      - /mnt/storage/downloads:/downloads
+      - /mnt/storage/downloads/complete:/downloads/complete
     ports:
       - 27020:6789
     restart: always
@@ -52,7 +52,7 @@ services:
     volumes:
       - /opt/appdata/sonarr:/config
       - /mnt/storage/tv:/tv
-      - /mnt/disk1/downloads/complete/tv:/downloads
+      - /mnt/storage/downloads/complete/tv:/downloads
       - /mnt/storage/downloads/complete/tv_import:/tv_import
     ports:
       - 8989:8989
@@ -69,7 +69,7 @@ services:
     volumes:
       - /opt/appdata/radarr:/config
       - /mnt/storage/movies:/movies
-      - /mnt/disk1/downloads/complete/movies:/downloads
+      - /mnt/storage/downloads/complete/movies:/downloads
     ports:
       - 7878:7878
     environment:
@@ -86,7 +86,7 @@ services:
       - PGID=${PGID}
     volumes:
       - /opt/appdata/rutorrent/config:/config
-      - /mnt/disk1/downloads:/downloads
+      - /mnt/storage/downloads:/downloads
       - /mnt/storage:/mnt/storage
     ports:
       - 80:80
@@ -228,7 +228,7 @@ services:
       - RUN_OPTS=<run options here> #optional
     volumes:
       - /opt/appdata/jackett/config:/config
-      - /mnt/disk1/downloads:/downloads
+      - /mnt/storage/downloads:/downloads
     ports:
       - 9117:9117
     restart: unless-stopped
@@ -253,7 +253,7 @@ services:
       - TZ=Europe/London
     volumes:
       - /opt/appdata/nzbhydra2/config:/config
-      - /mnt/disk1/downloads:/downloads
+      - /mnt/storage/downloads:/downloads
     ports:
       - 5076:5076
     restart: unless-stopped
