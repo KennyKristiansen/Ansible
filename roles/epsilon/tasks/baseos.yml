@@ -52,17 +52,23 @@
     mode: 0777
   with_items: "{{ mntpoints }}"
 
-- name: mount disks
+- name: mount sdb
   mount:
-    path: "{{ item.name }}"
-    src: "{{ item.src }}"
-    fstype: "{{ item.fstype }}"
+    path: /mnt/disk1
+    src: /dev/sdb
+    fstype: "ext4"
     opts: "errors=remount-ro,noatime,user_xattr,acl"
     # change to 'mounted' to auto mount
     state: mounted
-  loop:
-     - { name: '/mnt/disk1', src: '/dev/sdb', fstype: 'ext4' }
-     - { name: '/mnt/storage', src: '/dev/sdc', fstype: 'ext4' }
+
+- name: mount sdc
+  mount:
+    path: /mnt/storage
+    src: /dev/sdc
+    fstype: ext4
+    opts: "errors=remount-ro,noatime,user_xattr,acl"
+    # change to 'mounted' to auto mount
+    state: mounted
 
 
 - name: mount mergerfs array
