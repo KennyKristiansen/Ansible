@@ -12,7 +12,7 @@ dockeruser: dockeruser
 dockergroup: dockergroup
 
 appdata: /opt/appdata
-downloaddir: /opt/downloads
+downloaddir: /mnt/disk1/downloads
 dockerlist: /opt/docker.list
 
 snapraidconf: /etc/snapraid.conf

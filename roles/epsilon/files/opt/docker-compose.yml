@@ -36,7 +36,7 @@ services:
     container_name: nzbget
     volumes:
       - /opt/appdata/nzbget/config:/config
-      - /opt/downloads:/downloads
+      - /mnt/disk1/downloads:/downloads
       - /mnt/disk1/downloads/complete:/downloads/complete
     ports:
       - 27020:6789
@@ -226,7 +226,7 @@ services:
       - AUTO_UPDATE=true #optional
       - RUN_OPTS=<run options here> #optional
     volumes:
-      - /opt/jackett/config:/config
+      - /opt/appdata/jackett/config:/config
       - /mnt/disk1/downloads:/downloads
     ports:
       - 9117:9117
@@ -251,7 +251,7 @@ services:
       - PGID=1000
       - TZ=Europe/London
     volumes:
-      - /opt/nzbhydra2/config:/config
+      - /opt/appdata/nzbhydra2/config:/config
       - /mnt/disk1/downloads:/downloads
     ports:
       - 5076:5076
