@@ -59,7 +59,7 @@
     fstype: "ext4"
     opts: "errors=remount-ro,noatime,user_xattr,acl"
     # change to 'mounted' to auto mount
-    state: mounted
+    state: present
 
 - name: mount sdc
   mount:
@@ -68,8 +68,7 @@
     fstype: ext4
     opts: "errors=remount-ro,noatime,user_xattr,acl"
     # change to 'mounted' to auto mount
-    state: mounted
-
+    state: present
 
 - name: mount mergerfs array
   mount:
@@ -78,7 +77,7 @@
     opts: direct_io,defaults,allow_other,minfreespace=50G,fsname=mergerfs
     fstype: fuse.mergerfs
     # change to 'mounted' to auto mount
-    state: mounted
+    state: present
 
 - name: "1. Uninstall HTTPD/Apache"
   tags: uninstall_apache
