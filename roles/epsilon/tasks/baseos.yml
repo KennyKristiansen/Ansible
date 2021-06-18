@@ -49,10 +49,11 @@
     fstype: "{{ item.fstype }}"
     opts: "errors=remount-ro,noatime,user_xattr,acl"
     # change to 'mounted' to auto mount
-    state: present
+    state: mounted
   loop:
      - { name: '/mnt/disk1', src: '/dev/sdb', fstype: 'ext4' }
      - { name: '/mnt/storage', src: '/dev/sdc', fstype: 'ext4' }
+
 
 - name: mount mergerfs array
   mount:
@@ -61,7 +62,7 @@
     opts: direct_io,defaults,allow_other,minfreespace=50G,fsname=mergerfs
     fstype: fuse.mergerfs
     # change to 'mounted' to auto mount
-    state: present
+    state: mounted
 
 - name: "1. Uninstall HTTPD/Apache"
   tags: uninstall_apache
