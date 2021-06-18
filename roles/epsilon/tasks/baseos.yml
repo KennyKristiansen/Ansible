@@ -32,7 +32,17 @@
     'tree',
     'tmux',
     'containerd.io']
+
+- name: Create a ext4 filesystem on /dev/sdb
+  filesystem:
+    fstype: ext4
+    dev: /dev/sdb
     
+- name: Create a ext4 filesystem on /dev/sdc
+  filesystem:
+    fstype: ext4
+    dev: /dev/sdc
+
 - name: create /mnt points
   file:
     dest: "/mnt/{{ item }}"
