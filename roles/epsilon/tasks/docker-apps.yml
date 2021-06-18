@@ -17,8 +17,8 @@
     dest: "{{ appdata }}"
     state: directory
     #recurse: yes
-    owner: "{{dockeruser}}"
-    group: "{{dockergroup}}"
+    owner: dockeruser
+    group: dockergroup
     mode: u=rw,g=rw,o=r
 
 - name: ensure download folder is present
@@ -26,8 +26,8 @@
     dest: "{{ downloaddir }}"
     state: directory
     recurse: yes
-    owner: "{{ dockeruser }}"
-    group: "{{ dockergroup }}"
+    owner: dockeruser
+    group: dockergroup
     mode: u=rw,g=rw,o=r
 
 - name: ensure torrent download dir is present
@@ -35,8 +35,8 @@
     dest: "{{ downloaddir }}/torrents"
     state: directory
     recurse: yes
-    owner: "{{ dockeruser }}"
-    group: "{{ dockergroup }}"
+    owner: dockeruser
+    group: dockergroup
     mode: u=rw,g=rw,o=r
 
 - name: add dtail
