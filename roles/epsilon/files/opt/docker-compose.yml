@@ -7,6 +7,7 @@ services:
     volumes:
       - /opt/appdata/plex:/config
       - /mnt/storage:/data
+      - /mnt/storage/transcode:/transcode
     network_mode: host
     restart: always
     environment:
