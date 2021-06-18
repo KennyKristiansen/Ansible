@@ -51,8 +51,8 @@
     # change to 'mounted' to auto mount
     state: present
   loop:
-     - { name: /mnt/disk1, src: /dev/sdb, fstype: ext4}
-     - { name: /mnt/storage, src: /dev/sdc, fstype: ext4}
+     - { name: '/mnt/disk1', src: '/dev/sdb', fstype: 'ext4' }
+     - { name: '/mnt/storage', src: '/dev/sdc', fstype: 'ext4' }
 
 - name: mount mergerfs array
   mount:
