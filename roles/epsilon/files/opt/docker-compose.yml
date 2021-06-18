@@ -206,8 +206,8 @@ services:
     image: ghcr.io/linuxserver/bazarr
     container_name: bazarr
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PGID=${PGID}
+      - PUID=${PUID}
       - TZ=Europe/London
     volumes:
       - /opt/appdata/bazarr/config:/config
@@ -221,8 +221,8 @@ services:
     image: ghcr.io/linuxserver/jackett
     container_name: jackett
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PGID=${PGID}
+      - PUID=${PUID}
       - TZ=Europe/London
       - AUTO_UPDATE=true #optional
       - RUN_OPTS=<run options here> #optional
@@ -248,8 +248,8 @@ services:
     image: ghcr.io/linuxserver/nzbhydra2
     container_name: nzbhydra2
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PGID=${PGID}
+      - PUID=${PUID}
       - TZ=Europe/London
     volumes:
       - /opt/appdata/nzbhydra2/config:/config
@@ -257,3 +257,17 @@ services:
     ports:
       - 5076:5076
     restart: unless-stopped
+
+  flaresolverr:
+    image: ghcr.io/flaresolverr/flaresolverr:latest
+    container_name: flaresolverr
+    environment:
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+      - LOG_HTML=${LOG_HTML:-false}
+      - CAPTCHA_SOLVER=${CAPTCHA_SOLVER:-none}
+      - PGID=${PGID}
+      - PUID=${PUID}
+      - TZ=Europe/London
+    ports:
+      - "${PORT:-8191}:8191"
+    restart: unless-stopped 
