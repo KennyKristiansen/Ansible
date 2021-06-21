@@ -5,7 +5,6 @@
 ## Requirements
 
 - Python 3
-- Locally configured SSH config (ideally deployed through [dotfiles](https://github.com/realorangeone/dotfiles))
 - `ansible` installed on the system
 
 ## Installation
