@@ -80,6 +80,7 @@ services:
 
   geoip-updater:
     image: crazymax/geoip-updater:latest
+    container_name: geoip
     volumes:
       - "./data/geoip:/data"
     environment:
@@ -94,6 +95,8 @@ services:
 
   rtorrent-rutorrent:
     image: crazymax/rtorrent-rutorrent:latest
+    container_name: rutorrent
+
     expose:
       - "6881/udp"
       - "8000"
@@ -162,6 +165,7 @@ services:
     restart: always
 
   rtorrent-logs:
+  container_name: rtorrent-logs
     image: bash
     command: bash -c 'tail -f /log/*.log'
     depends_on:
