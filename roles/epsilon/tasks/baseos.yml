@@ -47,19 +47,10 @@
   file:
     dest: "/mnt/{{ item }}"
     state: directory
-    owner: nobody
+    owner: W
     group: nogroup
     mode: 0777
   with_items: "{{ mntpoints }}"
-
-- name: mount sdb
-  mount:
-    path: /mnt/storage
-    src: /dev/sdb
-    fstype: "ext4"
-    opts: "errors=remount-ro,noatime,user_xattr,acl"
-    # change to 'mounted' to auto mount
-    state: mounted
 
 #- name: mount sdc
 #  mount:
