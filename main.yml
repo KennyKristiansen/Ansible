@@ -8,7 +8,7 @@
 
   roles:
     - docker
-    - mergerfs
+#    - mergerfs
 #    - snapraid
     - epsilon
     - docker-compose

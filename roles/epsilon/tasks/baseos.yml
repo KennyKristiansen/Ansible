@@ -33,10 +33,10 @@
     'tmux',
     'containerd.io']
 
-- name: Create a ext4 filesystem on /dev/sdb
-  filesystem:
-    fstype: ext4
-    dev: /dev/sdb
+# - name: Create a ext4 filesystem on /dev/sdb
+#  filesystem:
+#    fstype: ext4
+#    dev: /dev/sdb
     
 #- name: Create a ext4 filesystem on /dev/sdc
 #  filesystem:
@@ -59,7 +59,7 @@
     fstype: "ext4"
     opts: "errors=remount-ro,noatime,user_xattr,acl"
     # change to 'mounted' to auto mount
-    state: present
+    state: mounted
 
 #- name: mount sdc
 #  mount:
