@@ -165,7 +165,6 @@ services:
     restart: always
 
   rtorrent-logs:
-    container_name: rtorrent-logs
     image: bash
     command: bash -c 'tail -f /log/*.log'
     depends_on:
