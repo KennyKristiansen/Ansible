@@ -78,23 +78,98 @@ services:
     restart:
       always
 
-  rutorrent:
-    image: linuxserver/rutorrent
-    container_name: rutorrent
+  geoip-updater:
+    image: crazymax/geoip-updater:latest
+    volumes:
+      - "./data/geoip:/data"
     environment:
+      - Europe/London
+      - EDITION_IDS=GeoLite2-City,GeoLite2-Country
+      - LICENSE_KEY=x1nPZNcjR7eYlYZm
+      - DOWNLOAD_PATH=/data
+      - SCHEDULE=0 0 * * 0
+      - LOG_LEVEL=info
+      - LOG_JSON=false
+    restart: always
+
+  rtorrent-rutorrent:
+    image: crazymax/rtorrent-rutorrent:latest
+    expose:
+      - "6881/udp"
+      - "8000"
+      - "8080"
+      - "9000"
+      - "50000"
+    ports:
+      - target: 6881
+        published: 6881
+        protocol: udp
+      - target: 8080
+        published: 8080
+        protocol: tcp
+      - target: 9000
+        published: 9000
+        protocol: tcp
+      - target: 50000
+        published: 50000
+        protocol: tcp
+    environment:
+      - TZ=Europe/Paris
       - PUID=${PUID}
       - PGID=${PGID}
-    volumes:
-      - /opt/appdata/rutorrent/config:/config
-      - /mnt/storage/downloads:/downloads
-      - /mnt/storage:/mnt/storage
-    ports:
-      - 80:80
-      - 5000:5000
-      - 51413:51413
-      - 6881:6881/udp
-    restart: unless-stopped
+      - MEMORY_LIMIT=256M
+      - UPLOAD_MAX_SIZE=16M
+      - OPCACHE_MEM_SIZE=128
+      - MAX_FILE_UPLOADS=50
+      - REAL_IP_FROM=0.0.0.0/32
+      - REAL_IP_HEADER=X-Forwarded-For
+      - LOG_IP_VAR=remote_addr
 
+      - XMLRPC_AUTHBASIC_STRING=rTorrent XMLRPC restricted access
+      - RUTORRENT_AUTHBASIC_STRING=ruTorrent restricted access
+      - WEBDAV_AUTHBASIC_STRING=WebDAV restricted access
+
+      - RT_LOG_LEVEL=info
+      - RT_LOG_EXECUTE=false
+      - RT_LOG_XMLRPC=false
+
+      - RU_REMOVE_CORE_PLUGINS=erasedata,httprpc
+      - RU_HTTP_USER_AGENT=Mozilla/5.0 (Windows NT 6.0; WOW64; rv:12.0) Gecko/20100101 Firefox/12.0
+      - RU_HTTP_TIME_OUT=30
+      - RU_HTTP_USE_GZIP=true
+      - RU_RPC_TIME_OUT=5
+      - RU_LOG_RPC_CALLS=false
+      - RU_LOG_RPC_FAULTS=true
+      - RU_PHP_USE_GZIP=false
+      - RU_PHP_GZIP_LEVEL=2
+      - RU_SCHEDULE_RAND=10
+      - RU_LOG_FILE=/data/rutorrent/rutorrent.log
+      - RU_DO_DIAGNOSTIC=true
+      - RU_SAVE_UPLOADED_TORRENTS=true
+      - RU_OVERWRITE_UPLOADED_TORRENTS=false
+      - RU_FORBID_USER_SETTINGS=false
+      - RU_LOCALE=UTF8
+      - ".env"
+    volumes:
+      - "/opt/appdata/rutorrent/config:/data"
+      - "/mnt/storage/downloads:/downloads"
+      - "/opt/appdata/rutorrent/passwd:/passwd"
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 32000
+        hard: 40000
+    restart: always
+
+  rtorrent-logs:
+    image: bash
+    command: bash -c 'tail -f /log/*.log'
+    depends_on:
+      - rtorrent-rutorrent
+    volumes:
+      - "./data/rtorrent/log:/log"
+    restart: always
+    
   sync:
     image: linuxserver/resilio-sync
     container_name: sync
