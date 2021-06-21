@@ -117,7 +117,7 @@ services:
       - TZ=Europe/Paris
       - PUID=${PUID}
       - PGID=${PGID}
-      - MEMORY_LIMIT=256M
+#      - MEMORY_LIMIT=256M
       - UPLOAD_MAX_SIZE=16M
       - OPCACHE_MEM_SIZE=128
       - MAX_FILE_UPLOADS=50
@@ -155,7 +155,7 @@ services:
       - "/mnt/storage/downloads:/downloads"
       - "/opt/appdata/rutorrent/passwd:/passwd"
     ulimits:
-      nproc: 65535
+      nproc: 1024
       nofile:
         soft: 32000
         hard: 40000
