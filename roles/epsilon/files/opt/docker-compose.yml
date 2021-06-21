@@ -167,8 +167,6 @@ services:
   rtorrent-logs:
     image: bash
     command: bash -c 'tail -f /log/*.log'
-    depends_on:
-      - rtorrent-rutorrent
     volumes:
       - "./data/rtorrent/log:/log"
     restart: always
