@@ -1,6 +1,6 @@
 # Ansible
 
-![CI Status](https://github.com/kennykristiansen/infrastructure/workflows/CI/badge.svg)
+https://img.shields.io/github/checks-status/kennykristiansen/Ansible/master
 
 ## Requirements
 
