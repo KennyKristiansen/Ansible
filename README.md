@@ -1,6 +1,6 @@
 # Ansible
 
-https://img.shields.io/github/checks-status/kennykristiansen/Ansible/master
+![GitHub branch checks state](https://img.shields.io/github/checks-status/kennykristiansen/Ansible/master)
 
 ## Requirements
 
