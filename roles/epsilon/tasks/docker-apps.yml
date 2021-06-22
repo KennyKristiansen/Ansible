@@ -19,7 +19,7 @@
     #recurse: yes
     owner: dockeruser
     group: dockergroup
-    mode: u=rw,g=rw,o=r
+    mode: u=rwx,g=rwx,o=rwx
 
 - name: ensure download folder is present
   file:
@@ -28,16 +28,8 @@
     recurse: yes
     owner: dockeruser
     group: dockergroup
-    mode: u=rw,g=rw,o=r
+    mode: u=rwx,g=rwx,o=rwx
 
-- name: ensure torrent download dir is present
-  file:
-    dest: "{{ downloaddir }}/torrents"
-    state: directory
-    recurse: yes
-    owner: dockeruser
-    group: dockergroup
-    mode: u=rw,g=rw,o=r
 
 - name: add dtail
   copy:
