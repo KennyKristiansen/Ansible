@@ -42,6 +42,7 @@
   register: docker_compose
 
 - name: Move docker-compose to /usr/local/bin/docker-compose
+  become: yes
   command: mv ~/docker-compose /usr/local/bin/docker-compose
   when: docker_compose.stat.exists
 
@@ -62,5 +63,5 @@
 
 - name: Docker-compose build
   docker_compose:
-    project_src: "/opt"
+    project_src: "/usr/local/bin/docker-compose"
   register: output
