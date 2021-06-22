@@ -7,7 +7,7 @@
   become: true
 
   roles:
-#    - docker
+    - docker
 #    - mergerfs
 #    - snapraid
     - epsilon
