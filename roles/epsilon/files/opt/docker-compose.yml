@@ -120,7 +120,7 @@ services:
       - TZ=Europe/Paris
       - PUID=${PUID}
       - PGID=${PGID}
-#      - MEMORY_LIMIT=256M
+#     - MEMORY_LIMIT=256M
       - UPLOAD_MAX_SIZE=16M
       - OPCACHE_MEM_SIZE=128
       - MAX_FILE_UPLOADS=50
@@ -152,7 +152,6 @@ services:
       - RU_OVERWRITE_UPLOADED_TORRENTS=false
       - RU_FORBID_USER_SETTINGS=false
       - RU_LOCALE=UTF8
-      - ".env"
     volumes:
       - "/opt/appdata/rutorrent/config:/data"
       - "/mnt/storage/downloads:/downloads"
