@@ -63,5 +63,5 @@
 
 - name: Docker-compose build
   docker_compose:
-    project_src: "/usr/local/bin/docker-compose"
+    project_src: "/opt"
   register: output
