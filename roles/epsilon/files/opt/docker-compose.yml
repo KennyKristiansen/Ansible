@@ -9,7 +9,7 @@ services:
       - PUID=${PUID}
       - PGID=${PGID}
       - VERSION=docker
-      - PLEX_CLAIM= claim-7w6qnphtUeDTCsSSEoDz
+      - PLEX_CLAIM=claim-wP9zgykR_FZyDJE654AV
     volumes:
       - /opt/appdata/plex:/config
       - /mnt/storage/tv:/tv
