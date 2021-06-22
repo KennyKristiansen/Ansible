@@ -39,7 +39,7 @@ services:
     volumes:
       - /opt/appdata/nzbget/config:/config
       - /mnt/storage/downloads:/downloads
-      - /mnt/storage/downloads/complete:/downloads/complete
+      - /mnt/storage/movies:/movies
     ports:
       - 27020:6789
     restart: always
@@ -53,8 +53,7 @@ services:
     volumes:
       - /opt/appdata/sonarr:/config
       - /mnt/storage/tv:/tv
-      - /mnt/storage/downloads/complete/tv:/downloads
-      - /mnt/storage/downloads/complete/tv_import:/tv_import
+      - /mnt/storage/downloads:/downloads
     ports:
       - 8989:8989
     links:
@@ -70,7 +69,7 @@ services:
     volumes:
       - /opt/appdata/radarr:/config
       - /mnt/storage/movies:/movies
-      - /mnt/storage/downloads/complete/movies:/downloads
+      - /mnt/storage/downloads:/downloads
     ports:
       - 7878:7878
     environment:
