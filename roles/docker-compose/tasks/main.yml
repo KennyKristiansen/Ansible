@@ -55,11 +55,11 @@
   pip:
     name: docker-compose
 
-- name: Tear down Docker services
-  docker_compose:
-    project_src: "/opt"
-    remove_orphans: yes
-    state: absent
+#- name: Tear down Docker services
+#  docker_compose:
+#    project_src: "/opt"
+#    remove_orphans: yes
+#    state: absent
 
 - name: Docker-compose build
   docker_compose:
