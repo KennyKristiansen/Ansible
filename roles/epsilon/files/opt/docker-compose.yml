@@ -225,7 +225,7 @@ services:
       - /opt/appdata/portainer/data:/data
 
   nzbhydra2:
-    image: ghcr.io/linuxserver/nzbhydra2
+    image: hotio/nzbhydra2
     container_name: nzbhydra2
     environment:
       - PGID=${PGID}
@@ -233,7 +233,6 @@ services:
       - TZ=Europe/London
     volumes:
       - /opt/appdata/nzbhydra2/config:/config
-      - /mnt:/mnt
     ports:
       - 5076:5076
     restart: unless-stopped
