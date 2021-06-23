@@ -38,8 +38,7 @@ services:
     container_name: nzbget
     volumes:
       - /opt/appdata/nzbget/config:/config
-      - /mnt/storage/downloads:/downloads
-      - /mnt/storage/movies:/movies
+      - /mnt:/mnt
     ports:
       - 27020:6789
     restart: always
@@ -52,8 +51,7 @@ services:
     container_name: sonarr
     volumes:
       - /opt/appdata/sonarr:/config
-      - /mnt/storage/tv:/tv
-      - /mnt/storage/downloads:/downloads
+      - /mnt:/mnt
     ports:
       - 8989:8989
     links:
@@ -68,8 +66,7 @@ services:
     container_name: radarr
     volumes:
       - /opt/appdata/radarr:/config
-      - /mnt/storage/movies:/movies
-      - /mnt/storage/downloads:/downloads
+      - /mnt:/mnt
     ports:
       - 7878:7878
     environment:
@@ -183,7 +180,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /opt/appdata/plex-meta-manager:/config:rw
-      - /mnt/storage:/storage
+      - /mnt:/mnt
 
   bazarr:
     image: ghcr.io/linuxserver/bazarr
@@ -211,7 +208,7 @@ services:
       - RUN_OPTS=<run options here> #optional
     volumes:
       - /opt/appdata/jackett/config:/config
-      - /mnt/storage/downloads:/downloads
+      - /mnt:/mnt
     ports:
       - 9117:9117
     restart: unless-stopped
@@ -236,7 +233,7 @@ services:
       - TZ=Europe/London
     volumes:
       - /opt/appdata/nzbhydra2/config:/config
-      - /mnt/storage/downloads:/downloads
+      - /mnt:/mnt
     ports:
       - 5076:5076
     restart: unless-stopped
@@ -265,7 +262,7 @@ services:
       - WEBUI_PORT=8080
     volumes:
       - /opt/appdata/qbittorrent/config:/config
-      - /mnt/storage/downloads:/downloads
+      - /mnt:/mnt
     ports:
       - 6881:6881
       - 6881:6881/udp
