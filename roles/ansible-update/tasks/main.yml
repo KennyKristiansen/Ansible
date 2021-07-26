@@ -1,0 +1,8 @@
+---  
+  
+  - name: pull from git
+    git:
+      repo: 'https://github.com/KennyKristiansen/Ansible.git'
+      dest: /github/
+      update: yes
+      version: master
