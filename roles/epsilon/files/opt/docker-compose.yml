@@ -4,6 +4,7 @@ services:
   plex:
     image: ghcr.io/linuxserver/plex
     container_name: plex
+    pull: yes
     network_mode: host
     environment:
       - PUID=${PUID}
@@ -19,6 +20,7 @@ services:
   plexpy:
     image: linuxserver/plexpy
     container_name: plexpy
+    pull: yes
     depends_on:
       - plex
     volumes:
@@ -36,6 +38,7 @@ services:
   nzbget:
     image: linuxserver/nzbget
     container_name: nzbget
+    pull: yes
     volumes:
       - /opt/appdata/nzbget/config:/config
       - /mnt:/mnt
@@ -49,6 +52,7 @@ services:
   sonarr:
     image: ghcr.io/linuxserver/sonarr
     container_name: sonarr
+    pull: yes
     volumes:
       - /opt/appdata/sonarr:/config
       - /mnt:/mnt
@@ -64,6 +68,7 @@ services:
   radarr:
     image: linuxserver/radarr
     container_name: radarr
+    pull: yes
     volumes:
       - /opt/appdata/radarr:/config
       - /mnt:/mnt
@@ -78,6 +83,7 @@ services:
   sync:
     image: linuxserver/resilio-sync
     container_name: sync
+    pull: yes
     volumes:
       - /opt/appdata/sync:/config
       - /mnt/storage:/sync
@@ -92,6 +98,7 @@ services:
   smokeping:
     image: linuxserver/smokeping
     container_name: smokeping
+    pull: yes
     volumes:
       - /opt/appdata/smokeping/config:/config
       - /opt/appdata/smokeping/data:/data
@@ -105,6 +112,7 @@ services:
   letsencrypt:
     image: linuxserver/letsencrypt
     container_name: letsencrypt
+    pull: yes
     ports:
       - 443:443
     volumes:
@@ -124,6 +132,7 @@ services:
   airsonic-advanced:
     image: airsonicadvanced/airsonic-advanced:latest
     container_name: airsonicadvanced
+    pull: yes
     restart: unless-stopped
     hostname: ${DOCKERHOSTNAME}
     volumes:
@@ -144,6 +153,7 @@ services:
   influxdb:
     image: influxdb:latest
     container_name: influxdb
+    pull: yes
     restart: always
     ports:
       - 8086:8086
@@ -157,6 +167,7 @@ services:
   grafana:
     image: grafana/grafana
     container_name: grafana
+    pull: yes
     restart: always
     ports:
       - 3002:3000
@@ -167,6 +178,7 @@ services:
 
   plex-meta-manager:
     image: meisnate12/plex-meta-manager
+    pull: yes
     stdin_open: true # docker run -i 
     tty: true        # docker run -t
 
@@ -185,6 +197,7 @@ services:
   bazarr:
     image: ghcr.io/linuxserver/bazarr
     container_name: bazarr
+    pull: yes
     environment:
       - PGID=${PGID}
       - PUID=${PUID}
@@ -200,6 +213,7 @@ services:
   jackett:
     image: ghcr.io/linuxserver/jackett
     container_name: jackett
+    pull: yes
     environment:
       - PGID=${PGID}
       - PUID=${PUID}
@@ -216,6 +230,7 @@ services:
   portainer:
     container_name: portainer
     image: portainer/portainer-ce
+    pull: yes
     command: -H unix:///var/run/docker.sock
     restart: always
     ports:
@@ -226,6 +241,7 @@ services:
 
   nzbhydra2:
     image: hotio/nzbhydra2
+    pull: yes
     container_name: nzbhydra2
     environment:
       - PGID=${PGID}
@@ -240,6 +256,7 @@ services:
   flaresolverr:
     image: ghcr.io/flaresolverr/flaresolverr:latest
     container_name: flaresolverr
+    pull: yes
     environment:
       - LOG_LEVEL=${LOG_LEVEL:-info}
       - LOG_HTML=${LOG_HTML:-false}
@@ -254,6 +271,7 @@ services:
   qbittorrent:
     image: ghcr.io/linuxserver/qbittorrent
     container_name: qbittorrent
+    pull: yes
     environment:
       - PGID=${PGID}
       - PUID=${PUID}
@@ -271,6 +289,7 @@ services:
   ombi:
     image: ghcr.io/linuxserver/ombi
     container_name: ombi
+    pull: yes
     environment:
       - PGID=${PGID}
       - PUID=${PUID}
