@@ -63,5 +63,11 @@
 
 - name: Docker-compose build
   docker_compose:
+    pull: yes
     project_src: "/opt"
+    remove_orphans: yes
   register: output
+
+- name: print all returned values
+  debug:
+    msg: "{{ output }}"

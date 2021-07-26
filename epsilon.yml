@@ -3,6 +3,7 @@
 - hosts: epsilon
   beomce: true
   roles:
+    - ansible-update
     - docker
     - docker-compose
 #    - mergerfs
