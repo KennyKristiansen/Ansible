@@ -66,6 +66,7 @@
     pull: yes
     project_src: "/opt"
     remove_orphans: yes
+    debug: yes
   register: output
 
 - name: print all returned values
