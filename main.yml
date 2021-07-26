@@ -8,6 +8,7 @@
   become: true
 
   roles:
+    - ansible-update
     - docker
 #    - mergerfs
 #    - snapraid
