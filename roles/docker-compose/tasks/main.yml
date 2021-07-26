@@ -65,7 +65,6 @@
   docker_compose:
     pull: yes
     project_src: "/opt"
-    remove_orphans: yes
     debug: yes
   register: output
 
