@@ -8,6 +8,7 @@ services:
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
+      - TZ=${TZ}
       - VERSION=docker
       - PLEX_CLAIM=claim-wP9zgykR_FZyDJE654AV
     volumes:
@@ -32,6 +33,7 @@ services:
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
+      - TZ=${TZ}
 
   nzbget:
     image: linuxserver/nzbget
@@ -45,6 +47,7 @@ services:
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
+      - TZ=${TZ}
 
   sonarr:
     image: ghcr.io/linuxserver/sonarr
@@ -60,6 +63,7 @@ services:
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
+      - TZ=${TZ}
       
   radarr:
     image: linuxserver/radarr
@@ -72,6 +76,7 @@ services:
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
+      - TZ=${TZ}
     restart:
       always
 
@@ -87,6 +92,7 @@ services:
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
+      - TZ=${TZ}
     restart: always
 
   smokeping:
@@ -100,6 +106,7 @@ services:
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
+      - TZ=${TZ}
     restart: always
 
   letsencrypt:
@@ -119,7 +126,7 @@ services:
       - SUBDOMAINS=one,sub,domain,comma,separated
       - ONLY_SUBDOMAINS=true
       - DHLEVEL=4096
-      - TZ=Europe/London
+      - TZ=${TZ}
 
   airsonic-advanced:
     image: airsonicadvanced/airsonic-advanced:latest
@@ -147,6 +154,10 @@ services:
     restart: always
     ports:
       - 8086:8086
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
     volumes:
       - /opt/appdata/influxdb:/var/lib/influxdb
       - /opt/appdata/influxdb:/var/lib/influxdb2
@@ -158,6 +169,10 @@ services:
     image: grafana/grafana
     container_name: grafana
     restart: always
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
     ports:
       - 3002:3000
     volumes:
@@ -189,7 +204,7 @@ services:
     environment:
       - PGID=${PGID}
       - PUID=${PUID}
-      - TZ=Europe/London
+      - TZ=${TZ}
     volumes:
       - /opt/appdata/bazarr/config:/config
       - /mnt/storage/movies:/movies #optional
@@ -204,7 +219,7 @@ services:
     environment:
       - PGID=${PGID}
       - PUID=${PUID}
-      - TZ=Europe/London
+      - TZ=${TZ}
       - AUTO_UPDATE=true #optional
       - RUN_OPTS=<run options here> #optional
     volumes:
@@ -219,6 +234,10 @@ services:
     image: portainer/portainer-ce
     command: -H unix:///var/run/docker.sock
     restart: always
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
     ports:
       - 9000:9000
     volumes:
@@ -231,7 +250,7 @@ services:
     environment:
       - PGID=${PGID}
       - PUID=${PUID}
-      - TZ=Europe/London
+      - TZ=${TZ}
     volumes:
       - /opt/appdata/nzbhydra2/config:/config
     ports:
@@ -247,7 +266,7 @@ services:
       - CAPTCHA_SOLVER=${CAPTCHA_SOLVER:-none}
       - PGID=${PGID}
       - PUID=${PUID}
-      - TZ=Europe/London
+      - TZ=${TZ}
     ports:
       - "${PORT:-8191}:8191"
     restart: unless-stopped 
@@ -258,7 +277,7 @@ services:
     environment:
       - PGID=${PGID}
       - PUID=${PUID}
-      - TZ=Europe/London
+      - TZ=${TZ}
       - WEBUI_PORT=8080
     volumes:
       - /opt/appdata/qbittorrent/config:/config
@@ -275,7 +294,7 @@ services:
     environment:
       - PGID=${PGID}
       - PUID=${PUID}
-      - TZ=Europe/London
+      - TZ=${TZ}
       - BASE_URL=/ombi #optional
     volumes:
       - /opt/appdata/ombi/config:/config
