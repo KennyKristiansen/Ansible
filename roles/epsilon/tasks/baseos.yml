@@ -6,7 +6,7 @@
     cache_valid_time: 300
 
 - name: Install system packages
-  apt: name={{ item }} state=present update_cache=yes
+  apt: name={{ item }} state=present update_cache=false
   loop: [ 'bash-completion',
     'curl',
     'exiftool',
