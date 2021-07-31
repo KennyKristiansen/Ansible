@@ -66,8 +66,6 @@
     pull: yes
     project_src: "/opt"
     debug: yes
-  register: output
-
-- name: print all returned values
+  register: actions
   debug:
-    msg: "{{ output }}"
+    msg: "{{ actions }}"
