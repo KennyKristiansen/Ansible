@@ -76,6 +76,7 @@
     state: present
     project_src: "/opt"
     files: "{{ item }}.yml"
+    remove_orphans: yes
   loop: [ 'plex',
   'sonarr',
   'radarr',
