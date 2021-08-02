@@ -49,8 +49,28 @@
 
 - name: copy docker-compose.yml into position
   copy:
-    src: "opt/docker-compose.yml"
-    dest: "/opt/docker-compose.yml"
+    src: "opt/{{container}}.yml"
+    dest: "/opt/{{container}}.yml"
+    loop: [ 'plex',
+    'plexpy',
+    'nzbget',
+    'sonarr',
+    'radarr',
+    'resilio-sync',
+    'letsencrypt',
+    'airsonicadvanced',
+    'influxdb',
+    'grafana',
+    'plex-meta-manager',
+    'bazarr',
+    'jackett',
+    'portainer',
+    'nzbhydra2',
+    'flaresolver',
+    'qbittorrent',
+    'ombi',
+    'mealie',
+    'smokeping']
     owner: nobody
     group: nogroup
     mode: 0775

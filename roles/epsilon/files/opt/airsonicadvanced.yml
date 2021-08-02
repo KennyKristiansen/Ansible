@@ -1,0 +1,22 @@
+---
+version: '2'
+services:
+  airsonic-advanced:
+    image: airsonicadvanced/airsonic-advanced:latest
+    container_name: airsonicadvanced
+    restart: unless-stopped
+    hostname: ${DOCKERHOSTNAME}
+    volumes:
+      - /opt/appdata/airsonic:/config
+      - /mnt/storage/music/flac:/music/flac
+      - /opt/appdata/airsonic/var/playlists:/var/playlists
+      - /opt/appdata/airsonic/var/podcasts:/var/podcasts
+      - /opt/appdata/airsonic/var/airsonic:/var/airsonic
+      - /opt/appdata/airsonic/var/music:/var/music
+
+    environment:
+     - PGID=${PGID}
+     - PUID=${PUID}
+     - TZ=${TZ}
+     - CONTEXT_PATH=/music
+     - JAVA_OPTS=-Dserver.use-forward-headers=true

@@ -1,0 +1,19 @@
+---
+version: '2'
+services:
+  influxdb:
+    image: influxdb:latest
+    container_name: influxdb
+    restart: always
+    ports:
+      - 8086:8086
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - /opt/appdata/influxdb:/var/lib/influxdb
+      - /opt/appdata/influxdb:/var/lib/influxdb2
+      - /opt/appdata/influxdb/etc:/etc/influxdb2
+    restart:
+      always

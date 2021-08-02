@@ -1,0 +1,18 @@
+---
+version: '2'
+services:
+  plex:
+    image: ghcr.io/linuxserver/plex
+    container_name: plex
+    network_mode: host
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - VERSION=docker
+      - PLEX_CLAIM=claim-wP9zgykR_FZyDJE654AV
+    volumes:
+      - /opt/appdata/plex:/config
+      - /mnt/storage/tv:/tv
+      - /mnt/storage/movies:/movies
+    restart: unless-stopped
