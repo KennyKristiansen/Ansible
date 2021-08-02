@@ -11,6 +11,6 @@ services:
     volumes:
       - /opt/appdata/heimdall/config:/config
     ports:
-      - 80:81
-      - 443:444
+      - 81:80
+      - 444:443
     restart: unless-stopped
