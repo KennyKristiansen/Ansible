@@ -83,6 +83,7 @@
     project_src: "/opt"
     files: "{{ item }}.yml"
   loop: [ 'plex',
+  'heimdall',
   'sonarr',
   'radarr',
   'resilio-sync',
@@ -99,7 +100,6 @@
   'qbittorrent',
   'ombi',
   'mealie',
-  'heimdall',
   'smokeping']
 
  
