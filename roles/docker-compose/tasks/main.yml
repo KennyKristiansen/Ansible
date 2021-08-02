@@ -73,6 +73,7 @@
 - name: Docker-compose up
   docker_compose:
     build: yes
+    state: present
     project_src: "/opt"
     files: "{{ container }}.yml"
     loop: [ 'plex',
@@ -95,7 +96,5 @@
     'ombi',
     'mealie',
     'smokeping']
-    state: present
-    debug: yes
 
  
