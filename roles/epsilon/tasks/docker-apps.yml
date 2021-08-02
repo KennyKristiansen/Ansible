@@ -55,8 +55,6 @@
     group: nogroup
     mode: 0775
   loop: [ 'plex',
-    'plexpy',
-    'nzbget',
     'sonarr',
     'radarr',
     'resilio-sync',

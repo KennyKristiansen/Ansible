@@ -77,8 +77,6 @@
     project_src: "/opt"
     files: "{{ item }}.yml"
   loop: [ 'plex',
-  'plexpy',
-  'nzbget',
   'sonarr',
   'radarr',
   'resilio-sync',
@@ -91,7 +89,7 @@
   'jackett',
   'portainer',
   'nzbhydra2',
-  'flaresolver',
+  'flaresolverr',
   'qbittorrent',
   'ombi',
   'mealie',

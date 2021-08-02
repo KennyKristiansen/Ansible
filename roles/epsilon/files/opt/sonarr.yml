@@ -17,3 +17,16 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
       
+  nzbget:
+    image: linuxserver/nzbget
+    container_name: nzbget
+    volumes:
+      - /opt/appdata/nzbget/config:/config
+      - /mnt:/mnt
+    ports:
+      - 27020:6789
+    restart: always
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
