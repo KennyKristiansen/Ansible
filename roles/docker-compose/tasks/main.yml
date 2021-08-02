@@ -61,14 +61,14 @@
 #    remove_orphans: yes
 #    state: absent
 
-- name: Docker-compose build
-  docker_compose:
-    pull: yes
-    project_src: "/opt"
-    debug: yes
-  register: actions
-  debug:
-    msg: "{{ actions }}"
+#- name: Docker-compose build
+#  docker_compose:
+#    pull: yes
+#    project_src: "/opt"
+#    debug: yes
+#  register: actions
+#  debug:
+#    msg: "{{ actions }}"
 
 - name: Docker-compose up
   docker_compose:
