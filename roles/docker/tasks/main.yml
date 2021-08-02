@@ -23,17 +23,3 @@
   - name: Install Docker Module for Python
     pip:
       name: docker
-
-#  - name: Pull default Docker image
-#    docker_image:
-#      name: "ubuntu"
-#      source: pull
-
-#  # Creates the number of containers defined by the variable create_containers, using values from vars file
-#  - name: Create default containers
-#    docker_container:
-#      name: "docker"
-#      image: "ubuntu"
-#      command: "sleep 1d"
-#      state: present
-#    with_sequence: count=1

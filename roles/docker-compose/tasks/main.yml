@@ -69,3 +69,35 @@
   register: actions
   debug:
     msg: "{{ actions }}"
+
+- name: Docker-compose up
+  docker_compose:
+    build: yes
+    project_src: "/opt"
+    files: {{ container }}.yml
+    loop: [ 'plex',
+    'plexpy',
+    'nzbget',
+    'sonarr',
+    'radarr',
+    'resilio-sync',
+    'letsencrypt',
+    'airsonicadvanced',
+    'influxdb',
+    'grafana',
+    'plex-meta-manager',
+    'bazarr',
+    'jackett',
+    'portainer',
+    'nzbhydra2',
+    'flaresolver',
+    'qbittorrent',
+    'ombi',
+    'mealie',
+    'smokeping']
+    state: present
+    debug: yes
+  register: actions
+  debug:
+    msg: "{{ actions }}"
+ 
