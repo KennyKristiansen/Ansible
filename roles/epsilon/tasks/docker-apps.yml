@@ -50,7 +50,10 @@
 - name: copy docker-compose.yml into position
   copy:
     src: "opt/{{ item }}.yml"
-    dest: "/opt/{{ item }}.yml"
+    dest: "/opt/{{ item }}.yml",
+    owner: nobody
+    group: nogroup
+    mode: 0775
   loop: [ 'plex',
     'plexpy',
     'nzbget',
@@ -71,9 +74,7 @@
     'ombi',
     'mealie',
     'smokeping']
-    owner: nobody
-    group: nogroup
-    mode: 0775
+
 
 #- name: use docker-compose to bring up apps
 #  shell: docker-compose -f /opt/docker-compose.yml up -d
