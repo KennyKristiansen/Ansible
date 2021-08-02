@@ -12,5 +12,5 @@
     - docker
 #    - mergerfs
 #    - snapraid
-#    - epsilon
+    - epsilon
     - docker-compose
