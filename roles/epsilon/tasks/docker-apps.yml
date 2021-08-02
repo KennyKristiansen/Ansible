@@ -49,8 +49,8 @@
 
 - name: copy docker-compose.yml into position
   copy:
-    src: "opt/{{container}}.yml"
-    dest: "/opt/{{container}}.yml"
+    src: "opt/{{ item }}.yml"
+    dest: "/opt/{{ item }}.yml"
     loop: [ 'plex',
     'plexpy',
     'nzbget',
