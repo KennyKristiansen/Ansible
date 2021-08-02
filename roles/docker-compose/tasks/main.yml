@@ -74,7 +74,6 @@
   docker_prune:
     containers: yes
     images: yes
-    dangling: true
     volumes: true
 
 - name: Docker-compose up
