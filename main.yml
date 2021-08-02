@@ -8,9 +8,9 @@
   become: true
 
   roles:
-    - ansible-update
-    - docker
+#    - ansible-update
+#    - docker
 #    - mergerfs
 #    - snapraid
-    - epsilon
-    - docker-compose
+#    - epsilon
+#    - docker-compose
