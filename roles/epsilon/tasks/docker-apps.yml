@@ -51,7 +51,7 @@
   copy:
     src: "opt/{{ item }}.yml"
     dest: "/opt/{{ item }}.yml"
-    loop: [ 'plex',
+  loop: [ 'plex',
     'plexpy',
     'nzbget',
     'sonarr',

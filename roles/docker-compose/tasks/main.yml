@@ -76,7 +76,7 @@
     state: present
     project_src: "/opt"
     files: "{{ item }}.yml"
-    loop: [ 'plex',
+  loop: [ 'plex',
     'plexpy',
     'nzbget',
     'sonarr',
