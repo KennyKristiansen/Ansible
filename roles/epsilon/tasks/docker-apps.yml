@@ -59,7 +59,6 @@
     'sonarr',
     'radarr',
     'resilio-sync',
-    'letsencrypt',
     'airsonicadvanced',
     'influxdb',
     'grafana',
