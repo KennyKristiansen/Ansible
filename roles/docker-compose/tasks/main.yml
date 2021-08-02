@@ -74,7 +74,7 @@
   docker_compose:
     build: yes
     project_src: "/opt"
-    files: {{ container }}.yml
+    files: "{{ container }}.yml"
     loop: [ 'plex',
     'plexpy',
     'nzbget',
