@@ -13,5 +13,7 @@ services:
       - 3002:3000
     volumes:
       - /opt/appdata/grafana:/var/lib/grafana
+      - /opt/appdata/grafana/plugins:/var/lib/grafana/plugins
+    user: "1050"
     restart:
       always

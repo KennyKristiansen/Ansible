@@ -13,6 +13,7 @@ services:
       - /opt/appdata/airsonic/var/podcasts:/var/podcasts
       - /opt/appdata/airsonic/var/airsonic:/var/airsonic
       - /opt/appdata/airsonic/var/music:/var/music
+      - /opt/appdata/airsonic/var/transcode:/var/transcode
 
     environment:
      - PGID=${PGID}
