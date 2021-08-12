@@ -10,8 +10,7 @@ services:
       - TZ=${TZ}
     volumes:
       - /opt/appdata/bazarr/config:/config
-      - /mnt/storage/movies:/movies #optional
-      - /mnt/storage/tv:/tv #optional
+      - /mnt:/mnt
     ports:
       - 6767:6767
     restart: unless-stopped
