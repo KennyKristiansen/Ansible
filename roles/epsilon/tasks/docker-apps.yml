@@ -71,7 +71,8 @@
     'qbittorrent',
     'ombi',
     'mealie',
-    'smokeping']
+    'smokeping',
+    'watchtower']
 
 
 #- name: use docker-compose to bring up apps
