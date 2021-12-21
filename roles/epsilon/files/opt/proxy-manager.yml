@@ -1,0 +1,17 @@
+---
+version: '3'
+services:
+  proxy-manager:
+    image: 'jc21/nginx-proxy-manager:latest'
+    restart: unless-stopped
+    environment:
+      - PGID=${PGID}
+      - PUID=${PUID}
+      - TZ=${TZ}
+    ports:
+      - '80:80'
+      - '81:81'
+      - '443:443'
+    volumes:
+      - /opt/appdata/letsencrypt/data:/data
+      - /opt/appdata/letsencrypt:/etc/letsencrypt
