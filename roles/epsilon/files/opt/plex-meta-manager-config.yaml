@@ -30,7 +30,7 @@ settings:                                       # Can be individually specified 
   save_missing: true
   run_again_delay: 2
 plex:                                           # Can be individually specified per library as well
-  url: http://192.168.1.12:32400
+  url: http://plex:32400
   token: ####################
   timeout: 60
   clean_bundles: false
@@ -40,10 +40,10 @@ tmdb:
   apikey: ################################
   language: en
 tautulli:                                       # Can be individually specified per library as well
-  url: http://192.168.1.12:8181
+  url: http://tautulli:8181
   apikey: ################################
 radarr:                                         # Can be individually specified per library as well
-  url: http://192.168.1.12:7878
+  url: http://radarr:7878
   token: ################################
   version: v3
   add: false
@@ -54,7 +54,7 @@ radarr:                                         # Can be individually specified 
   tag:
   search: false
 sonarr:                                         # Can be individually specified per library as well
-  url: http://192.168.1.12:8989
+  url: http://sonarr:8989
   token: ################################
   version: v3
   add: false
