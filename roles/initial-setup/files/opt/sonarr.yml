@@ -1,0 +1,32 @@
+---
+version: '2'
+services:
+  sonarr:
+    image: ghcr.io/linuxserver/sonarr
+    container_name: sonarr
+    volumes:
+      - /opt/appdata/sonarr:/config
+      - /mnt:/mnt
+    ports:
+      - 8989:8989
+    links:
+      - nzbget
+    restart: always
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      
+  nzbget:
+    image: linuxserver/nzbget
+    container_name: nzbget
+    volumes:
+      - /opt/appdata/nzbget/config:/config
+      - /mnt:/mnt
+    ports:
+      - 27020:6789
+    restart: always
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}

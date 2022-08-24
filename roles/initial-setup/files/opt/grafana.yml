@@ -1,0 +1,19 @@
+---
+version: '2'
+services:
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    restart: always
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    ports:
+      - 3002:3000
+    volumes:
+      - /opt/appdata/grafana:/var/lib/grafana
+      - /opt/appdata/grafana/plugins:/var/lib/grafana/plugins
+    user: "1050"
+    restart:
+      always

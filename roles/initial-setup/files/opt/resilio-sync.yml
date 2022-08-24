@@ -1,0 +1,17 @@
+---
+version: '2'
+services:
+  sync:
+    image: linuxserver/resilio-sync
+    container_name: sync
+    volumes:
+      - /opt/appdata/sync:/config
+      - /mnt/storage:/sync
+    ports:
+      - 27028:8888
+      - 55555:55555
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    restart: always

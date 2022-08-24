@@ -1,0 +1,17 @@
+---
+version: '2'
+services:
+  bazarr:
+    image: ghcr.io/linuxserver/bazarr
+    container_name: bazarr
+    environment:
+      - PGID=${PGID}
+      - PUID=${PUID}
+      - TZ=${TZ}
+    volumes:
+      - /opt/appdata/bazarr/config:/config
+      - /mnt:/mnt
+    ports:
+      - 6767:6767
+    restart: unless-stopped
+

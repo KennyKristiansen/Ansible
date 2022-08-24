@@ -11,7 +11,7 @@ mntpoints:
 dockeruser: dockeruser
 dockergroup: dockergroup
 
-appdata: /opt/appdata
+appdata: /mnt/opt/appdata
 downloaddir: /mnt/storage/downloads
 dockerlist: /opt/docker.list
 

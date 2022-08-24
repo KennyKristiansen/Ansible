@@ -6,11 +6,11 @@
 
 - hosts: all
   become: true
-
   roles:
     - ansible-update
+    - initial-setup
     - docker
+    - docker-compose
+
 #    - mergerfs
 #    - snapraid
-    - epsilon
-    - docker-compose

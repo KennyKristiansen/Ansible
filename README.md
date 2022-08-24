@@ -9,9 +9,8 @@
 
 ## Installation
 
-git clone https://github.com/KennyKristiansen/Ansible.git
-cd Ansible
+    git clone https://github.com/KennyKristiansen/Ansible.git && cd Ansible
 
 ## Deploying
-- cd Ansible
-- ansible-playbook main.yml -i hosts -K --connection=local
+
+    ansible-playbook main.yml -i hosts -K --connection=local

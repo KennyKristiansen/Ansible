@@ -2,3 +2,4 @@
 
 # version
 docker_compose_version:
+docker_apps: true
