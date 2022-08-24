@@ -72,7 +72,8 @@
     'ombi',
     'mealie',
     'smokeping',
-    'watchtower']
+    'watchtower',
+    'prowlarr']
 
 
 #- name: use docker-compose to bring up apps
