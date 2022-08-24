@@ -1,6 +1,6 @@
 # ansible-playbook main.yml -i hosts --tags docker_apps
 ---
 - hosts: epsilon
-  beomce: true
+  become: true
   roles:
     - docker-compose
