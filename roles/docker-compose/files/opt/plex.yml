@@ -10,7 +10,7 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
       - VERSION=docker
-      - PLEX_CLAIM=claim-wP9zgykR_FZyDJE654AV
+      - PLEX_CLAIM=claim-HKZhH9XJ3Bi-hVLA1o59
     volumes:
       - /mnt/appdata/plex:/config
       - /mnt/storage/tv:/tv

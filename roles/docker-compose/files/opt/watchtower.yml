@@ -6,10 +6,10 @@ services:
     container_name: watchtower
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /docker/watchtower/configs:/config/
+      #- /docker/watchtower/config:/config/
+    command: --interval 60 --cleanup --debug
     restart: always
     environment:
-        DOCKER_CONFIG: /config
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TZ}
