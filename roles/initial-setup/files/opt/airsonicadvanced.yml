@@ -7,13 +7,13 @@ services:
     restart: unless-stopped
     hostname: ${DOCKERHOSTNAME}
     volumes:
-      - /opt/appdata/airsonic:/config
+      - /mnt/appdata/airsonic:/config
       - /mnt/storage/music/flac:/music/flac
-      - /opt/appdata/airsonic/var/playlists:/var/playlists
-      - /opt/appdata/airsonic/var/podcasts:/var/podcasts
-      - /opt/appdata/airsonic/var/airsonic:/var/airsonic
-      - /opt/appdata/airsonic/var/music:/var/music
-      - /opt/appdata/airsonic/var/transcode:/var/airsonic/transcode
+      - /mnt/appdata/airsonic/var/playlists:/var/playlists
+      - /mnt/appdata/airsonic/var/podcasts:/var/podcasts
+      - /mnt/appdata/airsonic/var/airsonic:/var/airsonic
+      - /mnt/appdata/airsonic/var/music:/var/music
+      - /mnt/appdata/airsonic/var/transcode:/var/airsonic/transcode
     ports:
       - 4040:4040
     environment:

@@ -12,8 +12,8 @@ services:
     ports:
       - 3002:3000
     volumes:
-      - /opt/appdata/grafana:/var/lib/grafana
-      - /opt/appdata/grafana/plugins:/var/lib/grafana/plugins
+      - /mnt/appdata/grafana:/var/lib/grafana
+      - /mnt/appdata/grafana/plugins:/var/lib/grafana/plugins
     user: "1050"
     restart:
       always

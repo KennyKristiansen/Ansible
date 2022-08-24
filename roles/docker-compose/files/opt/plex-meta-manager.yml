@@ -16,6 +16,6 @@ services:
     container_name: plex-meta-manager
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - /opt/appdata/plex-meta-manager:/config:rw
+      - /mnt/appdata/plex-meta-manager:/config:rw
       - /mnt:/mnt
 

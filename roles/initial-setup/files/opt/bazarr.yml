@@ -9,7 +9,7 @@ services:
       - PUID=${PUID}
       - TZ=${TZ}
     volumes:
-      - /opt/appdata/bazarr/config:/config
+      - /mnt/appdata/bazarr/config:/config
       - /mnt:/mnt
     ports:
       - 6767:6767

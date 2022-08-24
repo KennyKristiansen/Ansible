@@ -5,7 +5,7 @@ services:
     image: ghcr.io/linuxserver/sonarr
     container_name: sonarr
     volumes:
-      - /opt/appdata/sonarr:/config
+      - /mnt/appdata/sonarr:/config
       - /mnt:/mnt
     ports:
       - 8989:8989
@@ -21,7 +21,7 @@ services:
     image: linuxserver/nzbget
     container_name: nzbget
     volumes:
-      - /opt/appdata/nzbget/config:/config
+      - /mnt/appdata/nzbget/config:/config
       - /mnt:/mnt
     ports:
       - 27020:6789

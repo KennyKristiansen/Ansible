@@ -14,4 +14,4 @@ services:
       - 9000:9000
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /opt/appdata/portainer/data:/data
+      - /mnt/appdata/portainer/data:/data

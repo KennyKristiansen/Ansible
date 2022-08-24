@@ -12,7 +12,7 @@ services:
       - VERSION=docker
       - PLEX_CLAIM=claim-wP9zgykR_FZyDJE654AV
     volumes:
-      - /opt/appdata/plex:/config
+      - /mnt/appdata/plex:/config
       - /mnt/storage/tv:/tv
       - /mnt/storage/movies:/movies
     restart: unless-stopped
@@ -23,8 +23,8 @@ services:
     depends_on:
       - plex
     volumes:
-      - /opt/appdata/plexpy:/config
-      - /opt/appdata/plex/Library/Application\ Support/Plex\ Media\ Server/Logs:/logs:ro
+      - /mnt/appdata/plexpy:/config
+      - /mnt/appdata/plex/Library/Application\ Support/Plex\ Media\ Server/Logs:/logs:ro
     ports:
       - 27029:8181
     links:

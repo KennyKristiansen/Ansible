@@ -9,7 +9,7 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
     volumes:
-      - /opt/appdata/prowlarr:/config
+      - /mnt/appdata/prowlarr:/config
     ports:
       - 9696:9696
     restart: unless-stopped

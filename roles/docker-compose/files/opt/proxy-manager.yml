@@ -13,5 +13,5 @@ services:
       - '81:81'
       - '443:443'
     volumes:
-      - /opt/appdata/letsencrypt/data:/data
-      - /opt/appdata/letsencrypt:/etc/letsencrypt
+      - /mnt/appdata/letsencrypt/data:/data
+      - /mnt/appdata/letsencrypt:/etc/letsencrypt

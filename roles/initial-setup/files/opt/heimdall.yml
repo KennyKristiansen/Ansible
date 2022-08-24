@@ -9,7 +9,7 @@ services:
       - PUID=${PUID}
       - TZ=${TZ}
     volumes:
-      - /opt/appdata/heimdall/config:/config
+      - /mnt/appdata/heimdall/config:/config
     ports:
       - 80:80
       - 443:443

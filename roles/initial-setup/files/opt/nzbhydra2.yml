@@ -9,7 +9,7 @@ services:
       - PUID=${PUID}
       - TZ=${TZ}
     volumes:
-      - /opt/appdata/nzbhydra2/config:/config
+      - /mnt/appdata/nzbhydra2/config:/config
     ports:
       - 5076:5076
     restart: unless-stopped

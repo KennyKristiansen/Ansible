@@ -7,7 +7,7 @@ services:
     ports:
       - 443:443
     volumes:
-      - /opt/appdata/letsencrypt:/config
+      - /mnt/appdata/letsencrypt:/config
     restart:
       always
     environment:

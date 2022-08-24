@@ -5,7 +5,7 @@ services:
     image: linuxserver/radarr
     container_name: radarr
     volumes:
-      - /opt/appdata/radarr:/config
+      - /mnt/appdata/radarr:/config
       - /mnt:/mnt
     ports:
       - 7878:7878
