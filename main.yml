@@ -8,9 +8,8 @@
   become: true
   roles:
     - ansible-update
-    - initial-setup
     - docker
-    - docker-compose
+    - initial-setup
 
 #    - mergerfs
 #    - snapraid
