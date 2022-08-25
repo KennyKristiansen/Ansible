@@ -4,20 +4,12 @@ services:
   watchtower:
     image: containrrr/watchtower
     container_name: watchtower
+    network_mode: host
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      #- /docker/watchtower/config:/config/
     command: --interval 60 --cleanup --debug
     restart: always
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TZ}
-      - WATCHTOWER_DEBUG=true
-      - WATCHTOWER_NOTIFICATIONS_LEVEL=debug
-      - WATCHTOWER_CLEANUP=true
-      - WATCHTOWER_INCLUDE_STOPPED=true
-      - WATCHTOWER_POLL_INTERVAL=86400
-      - WATCHTOWER_NO_PULL=false
-      - WATCHTOWER_MONITOR_ONLY=false
-      
