@@ -14,11 +14,14 @@
 
   - name: Add Docker Repository
     apt_repository:
-      repo: deb https://download.docker.com/linux/ubuntu bionic stable
+      repo: deb https://download.docker.com/linux/ubuntu focal stable
       state: present
 
   - name: Update apt and install docker-ce
-    apt: update_cache=yes name=docker-ce state=latest
+    apt:
+      name: docker-ce
+      state: latest
+      update_cache: true
 
   - name: Install Docker Module for Python
     pip:
