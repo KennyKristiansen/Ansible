@@ -15,7 +15,3 @@
   when: backups
   tags: backups
 
-- name: configure docker apps (usenet, plex, etc)
-  include: docker-apps.yml
-  when: docker_apps
-  tags: docker_apps

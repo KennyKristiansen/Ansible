@@ -14,3 +14,4 @@ dockergroup: dockergroup
 appdata: /mnt/opt/appdata
 downloaddir: /mnt/storage/downloads
 dockerlist: /opt/docker.list
+
