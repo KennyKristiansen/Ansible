@@ -8,6 +8,7 @@ services:
     volumes:
       - /mnt/appdata/homarr/config:/app/data/configs
       - /mnt/appdata/homarr/icons:/app/public/icons
+      - /var/run/docker.sock:/var/run/docker.sock
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
