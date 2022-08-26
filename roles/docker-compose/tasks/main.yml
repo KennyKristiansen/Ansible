@@ -16,8 +16,8 @@
     files: "{{ item }}"
   with_fileglob: 
     - "opt/*.yml"
-  async : 60
-  poll: 2
+  async : 120
+  poll: 10
 
 
   #- name: Tear down Docker services
