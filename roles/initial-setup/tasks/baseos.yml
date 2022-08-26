@@ -7,7 +7,10 @@
 
 - name: Install system packages
   apt: name={{ item }} state=present update_cache=false
-  loop: [ 'bash-completion',
+  loop: {{items, wantlist=True}}
+  async: 60
+  loop: 5  
+  with_items: [ 'bash-completion',
     'curl',
     'exiftool',
     'fuse',
@@ -32,8 +35,6 @@
     'tree',
     'tmux',
     'containerd.io']
-  async: 60
-  loop: 5 
 
 # - name: Create a ext4 filesystem on /dev/sdb
 #  filesystem:
