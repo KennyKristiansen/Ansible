@@ -1,11 +1,11 @@
 ---
-- name: copy docker-compose.yml into position
-  copy:
-    src: "opt/"
-    dest: "/opt/"
-    owner: nobody
-    group: nogroup
-    mode: 0775
+#- name: copy docker-compose.yml into position
+#  copy:
+#    src: "opt/"
+#    dest: "/opt/"
+#    owner: nobody
+#    group: nogroup
+#    mode: 0775
 
 
 - name: Docker-compose up
@@ -16,6 +16,8 @@
     files: "{{ item }}"
   with_fileglob: 
     - "/opt/*.yml"
+  async : 60
+  poll: 05
 
 
   #- name: Tear down Docker services
