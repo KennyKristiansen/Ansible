@@ -6,8 +6,8 @@
     cache_valid_time: 300
 
 - name: Install system packages
-  apt: name={{ item }} state=present update_cache=false
-  loop: {{items, wantlist=True}}
+  apt: name={{ item }} state=present update_cache=false wantlist=True
+  loop: {{items}}
   async: 60
   loop: 5  
   with_items: [ 'bash-completion',
