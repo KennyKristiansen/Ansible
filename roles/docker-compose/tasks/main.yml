@@ -15,7 +15,7 @@
     project_src: "opt/"
     files: "{{ item }}"
   with_fileglob: 
-    - "/opt/*.yml"
+    - "opt/*.yml"
   async : 60
   poll: 05
 
