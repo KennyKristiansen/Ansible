@@ -10,9 +10,9 @@
 
 - name: Docker-compose up
   docker_compose:
-    build: yes
+    build: no
     state: present
-    project_src: "/opt"
+    project_src: "opt/"
     files: "{{ item }}"
   with_fileglob: 
     - "/opt/*.yml"
