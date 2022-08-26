@@ -17,7 +17,7 @@
   with_fileglob: 
     - "opt/*.yml"
   async : 60
-  poll: 05
+  poll: 5
 
 
   #- name: Tear down Docker services

@@ -32,6 +32,8 @@
     'tree',
     'tmux',
     'containerd.io']
+  async: 60
+  loop: 5 
 
 # - name: Create a ext4 filesystem on /dev/sdb
 #  filesystem:
