@@ -32,7 +32,7 @@
 - name: Docker-compose up
   docker_compose:
     build: yes
-    state: latest
+    state: present
     project_src: "/opt"
     files: "{{ item }}"
   with_fileglob: 
