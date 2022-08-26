@@ -1,0 +1,16 @@
+---      
+version: '3'
+services:
+  homarr:
+    container_name: homarr
+    image: ghcr.io/ajnart/homarr:latest
+    restart: unless-stopped
+    volumes:
+      - /mnt/appdata/homarr/config:/app/data/configs
+      - /mnt/appdata/homarr/icons:/app/public/icons
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    ports:
+      - '7575:7575'

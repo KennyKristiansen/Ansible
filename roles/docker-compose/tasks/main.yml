@@ -1,4 +1,43 @@
----  
+---
+- name: copy docker-compose.yml into position
+  copy:
+    src: "opt/{{ item }}.yml"
+    dest: "/opt/{{ item }}.yml"
+    owner: nobody
+    group: nogroup
+    mode: 0775
+  loop: [ 'plex',
+    'heimdall',
+    'sonarr',
+    'radarr',
+    'resilio-sync',
+    'airsonicadvanced',
+    'influxdb',
+    'grafana',
+    'plex-meta-manager',
+    'bazarr',
+    'jackett',
+    'portainer',
+    'nzbhydra2',
+    'flaresolverr',
+    'qbittorrent',
+    'ombi',
+    'mealie',
+    'smokeping',
+    'watchtower',
+    'prowlarr',
+    'homarr']
+
+
+- name: Docker-compose up
+  docker_compose:
+    build: yes
+    state: latest
+    project_src: "/opt"
+    files: "{{ item }}"
+    with_fileglob: "*.yml"
+
+
   #- name: Tear down Docker services
 #  docker_compose:
 #    project_src: "/opt"
@@ -18,38 +57,3 @@
 #  docker_prune:
 #    containers: yes
 #    images: yes
-
-- name: configure docker apps (usenet, plex, etc)
-  include: docker-apps.yml
-  when: docker_apps
-  tags: docker_apps
-
-
-- name: Docker-compose up
-  docker_compose:
-    build: yes
-    state: present
-    project_src: "/opt"
-    files: "{{ item }}.yml"
-  loop: [ 'plex',
-  'heimdall',
-  'sonarr',
-  'radarr',
-  'resilio-sync',
-  'airsonicadvanced',
-  'influxdb',
-  'grafana',
-  'plex-meta-manager',
-  'bazarr',
-  'jackett',
-  'portainer',
-  'nzbhydra2',
-  'flaresolverr',
-  'qbittorrent',
-  'ombi',
-  'mealie',
-  'smokeping',
-  'watchtower',
-  'prowlarr']
-
- 
