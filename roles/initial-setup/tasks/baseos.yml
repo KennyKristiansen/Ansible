@@ -6,35 +6,39 @@
     cache_valid_time: 300
 
 - name: Install system packages
-  apt: name={{ item }} state=present update_cache=false wantlist=True
-  loop: {{items}}
+  apt:
+    name: "{{ item}}"
+    state: present
+    update_cache: true
+    cache_valid_time: 3600
   async: 60
   loop: 5  
-  with_items: [ 'bash-completion',
-    'curl',
-    'exiftool',
-    'fuse',
-    'glances',
-    'git',
-    'htop',
-    'iftop',
-    'iotop',
-    'jq',
-    'lynx',
-    'mc',
-    'wget',
-    'xfsprogs',
-    'openssh-server',
-    'ncdu',
-    'nmap',
-    'python',
-    'reptyr',
-    'screen',
-    'smartmontools',
-    'sudo',
-    'tree',
-    'tmux',
-    'containerd.io']
+  with_items: 
+    - bash-completion
+    - curl
+    - exiftool
+    - fuse
+    - glances
+    - git
+    - htop
+    - iftop
+    - iotop
+    - jq
+    - lynx
+    - mc
+    - wget
+    - xfsprogs
+    - openssh-server
+    - ncdu
+    - nmap
+    - python
+    - reptyr
+    - screen
+    - smartmontools
+    - sudo
+    - tree
+    - tmux
+    - containerd.io
 
 # - name: Create a ext4 filesystem on /dev/sdb
 #  filesystem:
