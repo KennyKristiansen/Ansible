@@ -1,8 +1,9 @@
 ---
 #- include_vars: vault.yml
-#//TODO Change the method 
 - name: install packages required for backup
-  apt: pkg={{ item }} state=present
+  apt: 
+    name: "{{ item }}"
+    state: present
   with_items:
     - rsync
     - rsnapshot
