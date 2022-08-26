@@ -2,11 +2,8 @@
 #- include_vars: vault.yml
 - name: install packages required for backup
   apt: 
-    name: "{{ item }}"
+    name: ['rsync', 'rsnapshot']
     state: present
-  with_items:
-    - rsync
-    - rsnapshot
 
 - name: install snapraid configuration
   copy:
