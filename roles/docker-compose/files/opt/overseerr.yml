@@ -1,0 +1,16 @@
+---
+version: '3'
+
+services:
+  overseerr:
+    image: sctx/overseerr:latest
+    container_name: overseerr
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    ports:
+      - 5055:5055
+    volumes:
+      - /mnt/appdata/overseerr/config:/app/config
+    restart: unless-stopped     
