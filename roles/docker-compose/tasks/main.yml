@@ -35,7 +35,8 @@
     state: latest
     project_src: "/opt"
     files: "{{ item }}"
-    with_fileglob: "*.yml"
+  with_fileglob: 
+    - "/opt/*.yml"
 
 
   #- name: Tear down Docker services
