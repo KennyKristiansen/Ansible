@@ -7,38 +7,37 @@
 
 - name: Install system packages
   apt:
-    name: "{{ item }}"
+    name: [ 'bash-completion',
+    'curl',
+    'exiftool',
+    'fuse',
+    'glances',
+    'git',
+    'htop',
+    'iftop',
+    'iotop',
+    'jq',
+    'lynx',
+    'mc',
+    'wget',
+    'xfsprogs',
+    'openssh-server',
+    'ncdu',
+    'nmap',
+    'python',
+    'reptyr',
+    'screen',
+    'smartmontools',
+    'sudo',
+    'tree',
+    'tmux',
+    'containerd.io']
     state: present
     update_cache: true
     cache_valid_time: 3600
-  with_items: 
-    - bash-completion
-    - curl
-    - exiftool
-    - fuse
-    - glances
-    - git
-    - htop
-    - iftop
-    - iotop
-    - jq
-    - lynx
-    - mc
-    - wget
-    - xfsprogs
-    - openssh-server
-    - ncdu
-    - nmap
-    - python
-    - reptyr
-    - screen
-    - smartmontools
-    - sudo
-    - tree
-    - tmux
-    - containerd.io
-  async: 60
-  poll: 5  
+
+  async: 30
+  poll: 1  
 
 # - name: Create a ext4 filesystem on /dev/sdb
 #  filesystem:
