@@ -13,7 +13,6 @@ services:
       - TZ=${TZ}
     volumes:
       - /mnt/appdata/influxdb:/var/lib/influxdb
-      - /mnt/appdata/influxdb:/var/lib/influxdb2
-      - /mnt/appdata/influxdb/etc:/etc/influxdb2
+      - /mnt/appdata/influxdb/etc:/etc/influxdb
     restart:
       always

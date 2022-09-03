@@ -10,10 +10,11 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
     ports:
-      - 3002:3000
+      - 3000:3000
     volumes:
-      - /mnt/appdata/grafana:/var/lib/grafana
-      - /mnt/appdata/grafana/plugins:/var/lib/grafana/plugins
-    user: "1050"
+      - /mnt/appdata/grafana/provisioning:/etc/grafana/provisioning"
+      - /mnt/appdata/grafana/data:/var/lib/grafana/ "
     restart:
       always
+#    depends_on:
+#     - influxdb
