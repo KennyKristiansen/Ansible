@@ -4,6 +4,8 @@ services:
   grafana:
     image: grafana/grafana
     container_name: grafana
+    network_mode: host
+
     restart: always
     environment:
       - PUID=${PUID}
@@ -12,9 +14,10 @@ services:
     ports:
       - 3000:3000
     volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
       - /mnt/appdata/grafana/provisioning:/etc/grafana/provisioning"
       - /mnt/appdata/grafana/data:/var/lib/grafana/ "
     restart:
       always
-#    depends_on:
-#     - influxdb
+    depends_on:
+     - influxdb

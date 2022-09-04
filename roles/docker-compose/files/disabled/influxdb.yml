@@ -4,6 +4,7 @@ services:
   influxdb:
     image: influxdb:latest
     container_name: influxdb
+    network_mode: host
     restart: always
     ports:
       - 8086:8086
@@ -12,6 +13,7 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
     volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
       - /mnt/appdata/influxdb:/var/lib/influxdb
       - /mnt/appdata/influxdb/etc:/etc/influxdb
     restart:
