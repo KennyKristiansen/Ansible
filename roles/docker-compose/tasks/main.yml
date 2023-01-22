@@ -11,7 +11,6 @@
   ansible.builtin.git:
     repo: 'https://github.com/opf/openproject-deploy'
     depth: 1
-    version: 'stable/12 openproject'
     dest: ./etc/openproject
 
 - name: OpenProject docker-compose up
