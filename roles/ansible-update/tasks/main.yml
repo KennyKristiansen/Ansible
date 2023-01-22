@@ -3,6 +3,6 @@
   - name: pull from git
     git:
       repo: 'https://github.com/KennyKristiansen/Ansible.git'
-      dest: /github/
+      dest: ../
       update: yes
       version: master
