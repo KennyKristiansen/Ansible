@@ -7,6 +7,16 @@
 #    group: nogroup
 #    mode: 0775
 
+- name: OpenProject git clone
+  ansible.builtin.git:
+    repo: 'https://github.com/opf/openproject-deploy --depth=1 --branch=stable/12 openproject'
+    dest: ./etc/openproject
+
+- name: OpenProject docker-compose up
+  docker_compose:
+    build: no
+    state: present
+    project_src: "./etc/openproject"
 
 - name: Docker-compose up
   docker_compose:
