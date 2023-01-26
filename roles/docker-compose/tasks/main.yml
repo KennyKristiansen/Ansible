@@ -17,7 +17,7 @@
   docker_compose:
     build: no
     state: present
-    project_src: "./etc/openproject"
+    project_src: "./etc/openproject/compose"
 
 - name: Docker-compose up
   docker_compose:
