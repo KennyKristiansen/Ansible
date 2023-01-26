@@ -19,23 +19,23 @@
     state: present
     project_src: "./etc/openproject/compose"
 
-# - name: Docker-compose up
-#   docker_compose:
-#     build: no
-#     state: present
-#     project_src: "opt/"
-#     files: "{{ item }}"
-#   with_fileglob: 
-#     - "opt/*.yml"
-#   async : 120
-#   poll: 10
-
-
-- name: Tear down Docker services
+- name: Docker-compose up
   docker_compose:
-    project_src: "/opt"
-    remove_orphans: yes
-    state: absent
+    build: no
+    state: present
+    project_src: "opt/"
+    files: "{{ item }}"
+  with_fileglob: 
+    - "opt/*.yml"
+  async : 120
+  poll: 10
+
+
+# - name: Tear down Docker services
+#   docker_compose:
+#     project_src: "/opt"
+#     remove_orphans: yes
+#     state: absent
 
 #- name: Docker-compose build
 #  docker_compose:
