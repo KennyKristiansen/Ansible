@@ -7,9 +7,8 @@
       update: yes
       version: master
 
+  - name: Remove old files foo
+    file: path=/Ansible state=absent
+
   - name: install homedir
-    synchronize:
-      src: /Git
-      dest: /Ansible
-      recursive: yes
-    delegate_to: '{{ansible_hostname}}'
+    copy: remote_src=True src=/Git dest=/Ansible
