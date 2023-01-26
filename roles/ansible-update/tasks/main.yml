@@ -3,6 +3,13 @@
   - name: pull from git
     git:
       repo: 'https://github.com/KennyKristiansen/Ansible.git'
-      dest: ../git/Ansible
+      dest: /Git
       update: yes
       version: master
+
+  - name: install homedir
+    synchronize:
+      src: /Git
+      dest: /Ansible
+      recursive: yes
+    delegate_to: '{{ansible_hostname}}'
