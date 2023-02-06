@@ -26,9 +26,9 @@
     project_src: "opt/"
     files: "{{ item }}"
     remove_orphans: true
-    env_file: "/.env"
   with_fileglob: 
     - "opt/*.yml"
+  env_file: "/.env"
   async : 120
   poll: 10
 
