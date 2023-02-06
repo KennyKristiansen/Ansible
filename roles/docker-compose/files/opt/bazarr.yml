@@ -2,7 +2,7 @@
 version: '2'
 services:
   bazarr:
-    image: ghcr.io/linuxserver/bazarr
+    image: lscr.io/linuxserver/bazarr:latest
     container_name: bazarr
     environment:
       - PGID= {{ PGID }}
