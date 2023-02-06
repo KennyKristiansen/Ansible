@@ -1,5 +1,5 @@
 ---
-version: "3.3"
+version: "2"
 services:
   plex-meta-manager:
     image: meisnate12/plex-meta-manager
