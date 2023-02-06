@@ -21,7 +21,7 @@
 
 - name: Docker-compose up
   docker_compose:
-    build: no
+    build: yes
     state: present
     project_src: "opt/"
     files: "{{ item }}"
