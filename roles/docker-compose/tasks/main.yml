@@ -28,7 +28,6 @@
     remove_orphans: true
   with_fileglob: 
     - "opt/*.yml"
-  env_file: "/.env"
   async : 120
   poll: 10
 
