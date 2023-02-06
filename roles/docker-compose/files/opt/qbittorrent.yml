@@ -5,9 +5,9 @@ services:
     image: ghcr.io/linuxserver/qbittorrent
     container_name: qbittorrent
     environment:
-      - PGID=${PGID}
-      - PUID=${PUID}
-      - TZ=${TZ}
+      - PGID= {{ PGID }}
+      - PUID= {{ PUID }}
+      - TZ= {{ TZ }}
       - WEBUI_PORT=8080
     volumes:
       - /mnt/appdata/qbittorrent/config:/config

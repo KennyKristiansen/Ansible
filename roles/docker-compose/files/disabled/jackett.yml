@@ -5,9 +5,9 @@ services:
     image: ghcr.io/linuxserver/jackett
     container_name: jackett
     environment:
-      - PGID=${PGID}
-      - PUID=${PUID}
-      - TZ=${TZ}
+      - PGID= {{ PGID }}
+      - PUID= {{ PUID }}
+      - TZ= {{ TZ }}
       - AUTO_UPDATE=true #optional
       - RUN_OPTS=<run options here> #optional
     volumes:

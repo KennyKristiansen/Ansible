@@ -5,9 +5,9 @@ services:
     image: lscr.io/linuxserver/ombi:lates
     container_name: ombi
     environment:
-      - PGID=${PGID}
-      - PUID=${PUID}
-      - TZ=${TZ}
+      - PGID= {{ PGID }}
+      - PUID= {{ PUID }}
+      - TZ= {{ TZ }}
       - BASE_URL=/ombi #optional
     volumes:
       - /mnt/appdata/ombi/config:/config

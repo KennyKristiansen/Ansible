@@ -8,9 +8,9 @@ services:
     ports:
       - 9925:80
     environment:
-      - PGID=${PGID}
-      - PUID=${PUID}
-      - TZ=${TZ}
+      - PGID= {{ PGID }}
+      - PUID= {{ PUID }}
+      - TZ= {{ TZ }}
 
       # Default Recipe Settings
       - "RECIPE_PUBLIC:true"

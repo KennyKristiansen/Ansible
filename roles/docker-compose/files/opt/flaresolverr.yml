@@ -8,9 +8,9 @@ services:
       - LOG_LEVEL=${LOG_LEVEL:-info}
       - LOG_HTML=${LOG_HTML:-false}
       - CAPTCHA_SOLVER=${CAPTCHA_SOLVER:-none}
-      - PGID=${PGID}
-      - PUID=${PUID}
-      - TZ=${TZ}
+      - PGID= {{ PGID }}
+      - PUID= {{ PUID }}
+      - TZ= {{ TZ }}
     ports:
       - "${PORT:-8191}:8191"
     restart: unless-stopped 
