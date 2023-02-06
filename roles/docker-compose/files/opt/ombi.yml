@@ -2,7 +2,7 @@
 version: '2'
 services:
   ombi:
-    image: ghcr.io/linuxserver/ombi
+    image: lscr.io/linuxserver/ombi:lates
     container_name: ombi
     environment:
       - PGID=${PGID}
