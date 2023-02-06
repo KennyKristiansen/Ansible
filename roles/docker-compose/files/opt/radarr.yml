@@ -10,8 +10,8 @@ services:
     ports:
       - 7878:7878
     environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
+      - PGID= {{ PGID }}
+      - PUID= {{ PUID }}
+      - TZ= {{ TZ }}
     restart:
       always

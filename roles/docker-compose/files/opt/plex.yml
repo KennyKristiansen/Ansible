@@ -6,9 +6,9 @@ services:
     container_name: plex
     network_mode: host
     environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
+      - PGID= {{ PGID }}
+      - PUID= {{ PUID }}
+      - TZ= {{ TZ }}
       - VERSION=docker
       - PLEX_CLAIM=claim-HKZhH9XJ3Bi-hVLA1o59
     volumes:

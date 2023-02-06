@@ -13,9 +13,9 @@ services:
       - nzbget
     restart: always
     environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
+      - PGID= {{ PGID }}
+      - PUID= {{ PUID }}
+      - TZ= {{ TZ }}
       
   nzbget:
     image: linuxserver/nzbget
@@ -27,6 +27,6 @@ services:
       - 27020:6789
     restart: always
     environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
+      - PGID= {{ PGID }}
+      - PUID= {{ PUID }}
+      - TZ= {{ TZ }}

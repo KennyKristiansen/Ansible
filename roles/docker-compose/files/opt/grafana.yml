@@ -8,9 +8,9 @@ services:
 
     restart: always
     environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
+      - PGID= {{ PGID }}
+      - PUID= {{ PUID }}
+      - TZ= {{ TZ }}
     ports:
       - 3000:3000
     volumes:
