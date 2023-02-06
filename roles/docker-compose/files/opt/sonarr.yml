@@ -1,5 +1,5 @@
 ---
-version: '2'
+version: {{ docker-compose-version }}
 services:
   sonarr:
     image: lscr.io/linuxserver/sonarr:latest

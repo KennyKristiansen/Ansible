@@ -1,5 +1,5 @@
 ---      
-version: '3'
+version: {{ docker-compose-version }}
 services:
   homarr:
     container_name: homarr

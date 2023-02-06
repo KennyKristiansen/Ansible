@@ -1,5 +1,5 @@
 ---
-version: '2'
+version: {{ docker-compose-version }}
 services:
   letsencrypt:
     image: linuxserver/letsencrypt

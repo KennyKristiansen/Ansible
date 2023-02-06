@@ -11,6 +11,7 @@
     PUID: 1050
     PGID: 1050
     TZ: Europe/Copenhagen
+    docker-compose-version: "3.8"
   roles:
     - ansible-update
     - initial-setup

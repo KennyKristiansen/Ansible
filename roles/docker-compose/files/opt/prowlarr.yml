@@ -1,5 +1,5 @@
 ---
-version: '2.1'
+version: {{ docker-compose-version }}
 services:
   prowlarr:
     image: lscr.io/linuxserver/prowlarr:latest

@@ -1,5 +1,5 @@
 ---
-version: '2'
+version: {{ docker-compose-version }}
 services:
   mealie:
     container_name: mealie
