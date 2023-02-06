@@ -1,5 +1,5 @@
 ---
-version: {{ docker-compose-version }}
+version: "3.8"
 services:
   bazarr:
     image: lscr.io/linuxserver/bazarr:latest

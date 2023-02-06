@@ -1,5 +1,5 @@
 ---
-version: {{ docker-compose-version }}
+version: "3.8"
 services:
   radarr:
     image: lscr.io/linuxserver/radarr:latest
