@@ -12,6 +12,7 @@ services:
       - 8267:8267 # node port. It should be mapped on this container because
                   # the node container use the network from the main container
     env_file: ../etc/user.env
+    environment:
       - UMASK_SET=002
       - serverIP=0.0.0.0
       - serverPort=8266
@@ -27,10 +28,8 @@ services:
     image: haveagitgat/tdarr_node:latest
     restart: unless-stopped
     network_mode: service:tdarr
+    env_file: ../etc/user.env
     environment:
-      - TZ=Europe/London
-      - PUID=${PUID}
-      - PGID=${PGID}
       - UMASK_SET=002
       - nodeID=MainNode
       - nodeIP=0.0.0.0

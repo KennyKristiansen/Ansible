@@ -6,6 +6,7 @@ services:
     container_name: plex
     network_mode: host
     env_file: ../etc/user.env
+    environment:
       - VERSION=docker
       - PLEX_CLAIM=claim-HKZhH9XJ3Bi-hVLA1o59
     volumes:
@@ -27,7 +28,4 @@ services:
     links:
       - plex
     restart: always
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
+    env_file: ../etc/user.env
