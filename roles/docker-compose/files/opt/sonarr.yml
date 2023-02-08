@@ -9,7 +9,5 @@ services:
       - /mnt:/mnt
     ports:
       - 8989:8989
-    links:
-      - nzbget
     restart: always
     env_file: ../etc/user.env

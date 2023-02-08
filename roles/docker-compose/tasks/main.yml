@@ -25,7 +25,7 @@
     state: present
     project_src: "opt/"
     files: "{{ item }}"
-    remove_orphans: true
+    remove_orphans: false
   with_fileglob: 
     - "opt/*.yml"
   #async : 120
