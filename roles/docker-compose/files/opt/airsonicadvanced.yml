@@ -17,8 +17,6 @@ services:
     ports:
       - 4040:4040
     environment:
-      - PGID= {{ PGID }}
-      - PUID= {{ PUID }}
-      - TZ= {{ TZ }}
+    env_file: .env
       - CONTEXT_PATH=/music
       - JAVA_OPTS=-Dserver.use-forward-headers=true

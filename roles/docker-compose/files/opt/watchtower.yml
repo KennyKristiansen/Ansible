@@ -10,10 +10,7 @@ services:
     command: --interval 60 --cleanup
     restart: always
     environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
-
+    env_file: .env
 #      - WATCHTOWER_DEBUG=true
 #      - WATCHTOWER_NOTIFICATIONS_LEVEL=debug
       - WATCHTOWER_CLEANUP=true

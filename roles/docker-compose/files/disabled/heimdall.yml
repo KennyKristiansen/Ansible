@@ -5,9 +5,7 @@ services:
     image: ghcr.io/linuxserver/heimdall
     container_name: heimdall
     environment:
-      - PGID= {{ PGID }}
-      - PUID= {{ PUID }}
-      - TZ= {{ TZ }}
+    env_file: .env
     volumes:
       - /mnt/appdata/heimdall/config:/config
     ports:

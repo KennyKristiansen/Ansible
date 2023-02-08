@@ -7,9 +7,7 @@ services:
     command: -H unix:///var/run/docker.sock
     restart: always
     environment:
-      - PGID= {{ PGID }}
-      - PUID= {{ PUID }}
-      - TZ= {{ TZ }}
+    env_file: .env
     ports:
       - 9000:9000
     volumes:

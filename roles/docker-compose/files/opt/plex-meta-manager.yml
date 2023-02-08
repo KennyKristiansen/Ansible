@@ -10,9 +10,7 @@ services:
     hostname: ${DOCKERHOSTNAME}
     command: -c /config/config.yml -t 03:00
     environment:
-      - PGID= {{ PGID }}
-      - PUID= {{ PUID }}
-      - TZ= {{ TZ }}
+    env_file: .env
     container_name: plex-meta-manager
     volumes:
       - /etc/localtime:/etc/localtime:ro

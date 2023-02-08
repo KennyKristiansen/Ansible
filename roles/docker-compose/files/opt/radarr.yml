@@ -10,8 +10,6 @@ services:
     ports:
       - 7878:7878
     environment:
-      - PGID= {{ PGID }}
-      - PUID= {{ PUID }}
-      - TZ= {{ TZ }}
+    env_file: .env
     restart:
       always

@@ -10,7 +10,5 @@ services:
     ports:
       - 27025:81
     environment:
-      - PGID= {{ PGID }}
-      - PUID= {{ PUID }}
-      - TZ= {{ TZ }}
+    env_file: .env
     restart: always

@@ -8,9 +8,9 @@
 - hosts: all
   become: true
   vars:
-    PUID: 1050
-    PGID: 1050
-    TZ: Europe/Copenhagen
+#    PUID: 1050
+#    PGID: 1050
+#    TZ: Europe/Copenhagen
   roles:
     - ansible-update
     - initial-setup

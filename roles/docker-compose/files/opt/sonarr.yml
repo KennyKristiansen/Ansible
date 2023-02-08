@@ -13,20 +13,4 @@ services:
       - nzbget
     restart: always
     environment:
-      - PGID= {{ PGID }}
-      - PUID= {{ PUID }}
-      - TZ= {{ TZ }}
-      
-  nzbget:
-    image: linuxserver/nzbget
-    container_name: nzbget
-    volumes:
-      - /mnt/appdata/nzbget/config:/config
-      - /mnt:/mnt
-    ports:
-      - 27020:6789
-    restart: always
-    environment:
-      - PGID= {{ PGID }}
-      - PUID= {{ PUID }}
-      - TZ= {{ TZ }}
+    env_file: .env

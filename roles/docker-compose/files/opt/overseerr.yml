@@ -6,9 +6,7 @@ services:
     image: sctx/overseerr:latest
     container_name: overseerr
     environment:
-      - PGID= {{ PGID }}
-      - PUID= {{ PUID }}
-      - TZ= {{ TZ }}
+    env_file: .env
     ports:
       - 5055:5055
     volumes:

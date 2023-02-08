@@ -28,8 +28,8 @@
     remove_orphans: true
   with_fileglob: 
     - "opt/*.yml"
-  async : 120
-  poll: 10
+  #async : 120
+  #poll: 10
 
 
 # - name: Tear down Docker services

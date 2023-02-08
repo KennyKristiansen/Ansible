@@ -5,9 +5,7 @@ services:
     image: lscr.io/linuxserver/bazarr:latest
     container_name: bazarr
     environment:
-      - PGID= {{ PGID }}
-      - PUID= {{ PUID }}
-      - TZ= {{ TZ }}
+    env_file: .env
     volumes:
       - /mnt/appdata/bazarr/config:/config
       - /mnt:/mnt

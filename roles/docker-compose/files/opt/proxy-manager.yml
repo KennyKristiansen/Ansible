@@ -6,9 +6,7 @@ services:
     container_name: proxy-manager
     restart: unless-stopped
     environment:
-      - PGID= {{ PGID }}
-      - PUID= {{ PUID }}
-      - TZ= {{ TZ }}
+    env_file: .env
     ports:
       - '80:80'
       - '81:81'
