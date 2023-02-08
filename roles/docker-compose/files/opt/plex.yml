@@ -5,7 +5,7 @@ services:
     image: lscr.io/linuxserver/plex:latest
     container_name: plex
     network_mode: host
-    env_file: .env
+    env_file: ./etc/.env
       - VERSION=docker
       - PLEX_CLAIM=claim-HKZhH9XJ3Bi-hVLA1o59
     volumes:

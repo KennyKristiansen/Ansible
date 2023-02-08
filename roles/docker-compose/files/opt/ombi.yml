@@ -4,7 +4,7 @@ services:
   ombi:
     image: lscr.io/linuxserver/ombi:latest
     container_name: ombi
-    env_file: .env
+    env_file: ./etc/.env
       - BASE_URL=/ombi #optional
     volumes:
       - /mnt/appdata/ombi/config:/config

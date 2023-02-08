@@ -6,7 +6,7 @@ services:
     image: portainer/portainer-ce
     command: -H unix:///var/run/docker.sock
     restart: always
-    env_file: .env
+    env_file: ./etc/.env
     ports:
       - 9000:9000
     volumes:

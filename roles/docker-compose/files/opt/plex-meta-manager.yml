@@ -9,7 +9,7 @@ services:
 
     hostname: ${DOCKERHOSTNAME}
     command: -c /config/config.yml -t 03:00
-    env_file: .env
+    env_file: ./etc/.env
     container_name: plex-meta-manager
     volumes:
       - /etc/localtime:/etc/localtime:ro

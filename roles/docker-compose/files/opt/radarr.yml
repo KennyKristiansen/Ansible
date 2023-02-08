@@ -9,6 +9,6 @@ services:
       - /mnt:/mnt
     ports:
       - 7878:7878
-    env_file: .env
+    env_file: ./etc/.env
     restart:
       always

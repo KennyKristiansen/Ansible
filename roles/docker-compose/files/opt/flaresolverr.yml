@@ -4,7 +4,7 @@ services:
   flaresolverr:
     image: ghcr.io/flaresolverr/flaresolverr:latest
     container_name: flaresolverr
-    env_file: .env
+    env_file: ./etc/.env
     ports:
       - "${PORT:-8191}:8191"
     restart: unless-stopped 
