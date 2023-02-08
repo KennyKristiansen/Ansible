@@ -9,7 +9,6 @@ services:
 
     hostname: ${DOCKERHOSTNAME}
     command: -c /config/config.yml -t 03:00
-    environment:
     env_file: .env
     container_name: plex-meta-manager
     volumes:

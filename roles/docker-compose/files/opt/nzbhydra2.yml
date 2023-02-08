@@ -4,7 +4,6 @@ services:
   nzbhydra2:
     image: hotio/nzbhydra2
     container_name: nzbhydra2
-    environment:
     env_file: .env
     volumes:
       - /mnt/appdata/nzbhydra2/config:/config

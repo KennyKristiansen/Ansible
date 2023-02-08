@@ -12,5 +12,4 @@ services:
     links:
       - nzbget
     restart: always
-    environment:
     env_file: .env

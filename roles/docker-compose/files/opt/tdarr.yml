@@ -11,7 +11,6 @@ services:
       - 8266:8266 # server port
       - 8267:8267 # node port. It should be mapped on this container because
                   # the node container use the network from the main container
-    environment:
     env_file: .env
       - UMASK_SET=002
       - serverIP=0.0.0.0

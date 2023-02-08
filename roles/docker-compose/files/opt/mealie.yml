@@ -7,7 +7,6 @@ services:
     restart: always
     ports:
       - 9925:80
-    environment:
     env_file: .env
 
       # Default Recipe Settings

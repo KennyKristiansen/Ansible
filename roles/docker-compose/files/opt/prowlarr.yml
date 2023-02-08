@@ -4,7 +4,6 @@ services:
   prowlarr:
     image: lscr.io/linuxserver/prowlarr:latest
     container_name: prowlarr
-    environment:
     env_file: .env
     volumes:
       - /mnt/appdata/prowlarr:/config

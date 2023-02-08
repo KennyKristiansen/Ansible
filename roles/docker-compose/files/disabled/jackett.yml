@@ -4,7 +4,6 @@ services:
   jackett:
     image: ghcr.io/linuxserver/jackett
     container_name: jackett
-    environment:
     env_file: .env
       - AUTO_UPDATE=true #optional
       - RUN_OPTS=<run options here> #optional

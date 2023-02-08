@@ -16,7 +16,6 @@ services:
       - /mnt/appdata/airsonic/var/transcode:/var/airsonic/transcode
     ports:
       - 4040:4040
-    environment:
     env_file: .env
       - CONTEXT_PATH=/music
       - JAVA_OPTS=-Dserver.use-forward-headers=true

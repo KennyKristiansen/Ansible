@@ -5,7 +5,6 @@ services:
   overseerr:
     image: sctx/overseerr:latest
     container_name: overseerr
-    environment:
     env_file: .env
     ports:
       - 5055:5055

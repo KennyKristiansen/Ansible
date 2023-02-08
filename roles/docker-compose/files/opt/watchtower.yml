@@ -9,7 +9,6 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     command: --interval 60 --cleanup
     restart: always
-    environment:
     env_file: .env
 #      - WATCHTOWER_DEBUG=true
 #      - WATCHTOWER_NOTIFICATIONS_LEVEL=debug
