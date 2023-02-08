@@ -4,7 +4,7 @@ services:
   qbittorrent:
     image: ghcr.io/linuxserver/qbittorrent
     container_name: qbittorrent
-    env_file: ./etc/.env
+    env_file: ../etc/user.env
       - WEBUI_PORT=8080
     volumes:
       - /mnt/appdata/qbittorrent/config:/config

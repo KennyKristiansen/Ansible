@@ -9,5 +9,5 @@ services:
       - /mnt/appdata/smokeping/data:/data
     ports:
       - 27025:81
-    env_file: ./etc/.env
+    env_file: ../etc/user.env
     restart: always

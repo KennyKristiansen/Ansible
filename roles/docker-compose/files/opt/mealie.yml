@@ -7,7 +7,7 @@ services:
     restart: always
     ports:
       - 9925:80
-    env_file: ./etc/.env
+    env_file: ../etc/user.env
 
       # Default Recipe Settings
       - "RECIPE_PUBLIC:true"

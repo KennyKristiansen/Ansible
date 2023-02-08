@@ -4,7 +4,7 @@ services:
   jackett:
     image: ghcr.io/linuxserver/jackett
     container_name: jackett
-    env_file: ./etc/.env
+    env_file: ../etc/user.env
       - AUTO_UPDATE=true #optional
       - RUN_OPTS=<run options here> #optional
     volumes:

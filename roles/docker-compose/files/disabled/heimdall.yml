@@ -4,7 +4,7 @@ services:
   heimdall:
     image: ghcr.io/linuxserver/heimdall
     container_name: heimdall
-    env_file: ./etc/.env
+    env_file: ../etc/user.env
     volumes:
       - /mnt/appdata/heimdall/config:/config
     ports:

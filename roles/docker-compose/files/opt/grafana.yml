@@ -7,7 +7,7 @@ services:
     network_mode: host
 
     restart: always
-    env_file: ./etc/.env
+    env_file: ../etc/user.env
     ports:
       - 3000:3000
     volumes:

@@ -5,7 +5,7 @@ services:
     image: 'jc21/nginx-proxy-manager:latest'
     container_name: proxy-manager
     restart: unless-stopped
-    env_file: ./etc/.env
+    env_file: ../etc/user.env
     ports:
       - '80:80'
       - '81:81'

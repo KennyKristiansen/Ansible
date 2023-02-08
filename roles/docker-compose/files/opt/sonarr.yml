@@ -12,4 +12,4 @@ services:
     links:
       - nzbget
     restart: always
-    env_file: ./etc/.env
+    env_file: ../etc/user.env

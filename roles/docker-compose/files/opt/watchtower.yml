@@ -9,7 +9,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     command: --interval 60 --cleanup
     restart: always
-    env_file: ./etc/.env
+    env_file: ../etc/user.env
 #      - WATCHTOWER_DEBUG=true
 #      - WATCHTOWER_NOTIFICATIONS_LEVEL=debug
       - WATCHTOWER_CLEANUP=true
