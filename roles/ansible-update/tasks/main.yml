@@ -9,6 +9,3 @@
 
   - name: Remove old files foo
     file: path=/Ansible state=absent
-
-  - name: install homedir
-    copy: remote_src=True src=/Git dest=/Ansible
