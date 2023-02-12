@@ -60,7 +60,7 @@
     'openssh-server',
     'ncdu',
     'nmap',
-    'python',
+    'python3',
     'reptyr',
     'screen',
     'smartmontools',
