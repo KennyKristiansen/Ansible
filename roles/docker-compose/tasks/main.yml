@@ -19,6 +19,21 @@
 #     state: present
 #     project_src: "./etc/openproject/compose"
 
+- name: Ensure group dockergroup exists
+  group:
+    name: dockergroup
+    state: present
+    gid: 1050
+
+- name: Create users
+  user:
+    name: dockeruser
+    state: present
+    password: docker
+    shell: /bin/bash
+    group: dockergroup
+    uid: 1050
+
 - name: Docker-compose up
   docker_compose:
     build: yes

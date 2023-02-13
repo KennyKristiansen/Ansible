@@ -3,5 +3,5 @@
 baseos: true
 
 # set to 'no' or 'false' to disable item
-backups: true
-file_sharing: true
+backups: false
+file_sharing: false
