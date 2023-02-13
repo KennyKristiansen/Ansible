@@ -4,9 +4,6 @@
 # ansible-playbook main.yml -i hosts -K --connection=local
 # the binary | this.file | -i targets | *optional --tags | -K asks for sudo pass
 # cd .. && sudo rm -r Ansible && git clone https://github.com/KennyKristiansen/Ansible.git && cd Ansible && ansible-playbook main.yml -i hosts -K --connection=local
-dependencies:
-  - gerlingguy.docker
-
 
 - hosts: all
   become: true
