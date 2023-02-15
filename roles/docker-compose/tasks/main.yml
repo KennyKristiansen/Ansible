@@ -35,6 +35,7 @@
     uid: 1050
 
 - name: Docker-compose up
+  become: true
   become_user: dockeruser
   docker_compose:
     build: yes
