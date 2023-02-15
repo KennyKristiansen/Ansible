@@ -6,7 +6,7 @@ services:
       # ⚠️ Required:
       # Change this to your host's public address
       - WG_HOST=80.198.201.49
-    Optional:
+    # Optional:
       - PASSWORD=foobar123
       # - WG_PORT=51820
       - WG_DEFAULT_ADDRESS=192.168.2.100
