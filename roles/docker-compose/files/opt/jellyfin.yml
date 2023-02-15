@@ -6,7 +6,6 @@ services:
     container_name: jellyfin
     env_file: ../etc/user.env
     volumes:
-    volumes:
       - /mnt/appdata/jellyfin/config:/config
       - /mnt/storage/tv:/data/tvshows
       - /mnt/storage/movies:/data/movies
