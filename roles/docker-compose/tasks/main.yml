@@ -37,6 +37,7 @@
 - name: Docker-compose up
   become: true
   become_user: dockeruser
+  ansible_become_password: docker
   docker_compose:
     build: yes
     state: present
