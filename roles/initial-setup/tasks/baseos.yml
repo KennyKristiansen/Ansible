@@ -17,7 +17,7 @@
       - virtualenv
       - python3-setuptools
     state: latest
-    update_cache: true
+    # update_cache: true
 
 - name: Add Docker GPG apt Key
   apt_key:
@@ -35,7 +35,7 @@
       - docker-ce
       - docker-compose
     state: latest
-    update_cache: true
+    # update_cache: true
 
 - name: Install Docker Module for Python
   pip:
@@ -45,32 +45,32 @@
   apt:
     name: [ 'bash-completion',
     'curl',
-    'exiftool',
-    'fuse',
-    'glances',
+    #'exiftool',
+    #'fuse',
+    'glances', # Monitoring tool 
     'git',
-    'htop',
-    'iftop',
-    'iotop',
-    'jq',
-    'lynx',
-    'mc',
+    #'htop', Used to view processes
+    #'iftop', Used to view network bandwidth
+    #'iotop', Used to view IO bottlenecks
+    #'jq', JSON processor for transforming JSON files
+    #'lynx', Textbrowser for WWW
+    'mc', # Fileviewer
     'wget',
-    'xfsprogs',
+    #'xfsprogs', Utilities for managing the XFS filesystem 
     'openssh-server',
-    'ncdu',
+    'ncdu', # Overview of disk usage
     'nmap',
     'python3',
-    'reptyr',
-    'screen',
-    'smartmontools',
+    #'reptyr', Take over process from new terminal
+    #'screen', Control multiple terminals from one
+    #'smartmontools', Test hardrives and their SMART statistics
     'sudo',
-    'tree',
-    'tmux',
-    'net-tools']
-    state: present
-    update_cache: true
-    cache_valid_time: 3600
+    'tree', # Replacement of ls command for a tree structured view
+    'tmux', # Run multiple terminal sessions at once
+    'net-tools'] # Install useful networking tools
+    state: latest
+    #update_cache: true
+    #cache_valid_time: 3600
 
   async: 120
   poll: 1  
@@ -89,31 +89,12 @@
   file:
     dest: "/mnt/{{ item }}"
     state: directory
-    owner: nobody
-    group: nogroup
+    owner: dockeruser
+    group: dockergroup
     mode: 0777
   with_items: "{{ mntpoints }}"
 
-#- name: mount sdc
-#  mount:
-#    path: /mnt/storage
-#    src: /dev/sdc
-#    fstype: ext4
-#    opts: "errors=remount-ro,noatime,user_xattr,acl"
-#    # change to 'mounted' to auto mount
-#    state: present
-
-#- name: mount mergerfs array
-#  mount:
-#    name: /mnt/storage
-#    src: /mnt/disk*
-#    # try to fix issue with nonempty opts
-#    opts: direct_io,defaults,allow_other,minfreespace=50G,fsname=mergerfs, nonempty
-#    fstype: fuse.mergerfs
-#    # change to 'mounted' to auto mount
-#    state: present
-
-- name: "1. Uninstall HTTPD/Apache"
+- name: "Uninstall HTTPD/Apache"
   tags: uninstall_apache
   apt:
     name: httpd

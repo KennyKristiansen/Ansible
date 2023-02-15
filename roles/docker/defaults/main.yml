@@ -19,7 +19,7 @@ docker_opts: ""
 # List of users to be added to 'docker' system group (disabled by default)
 # SECURITY WARNING:
 # Be aware that granted users can easily get full root access on the docker host system!
-docker_group_members: []
+docker_group_members: [kenny]
 
 # Set to 'yes' or 'true' to enable updates (sets 'latest' in apt module)
 update_docker_package: yes

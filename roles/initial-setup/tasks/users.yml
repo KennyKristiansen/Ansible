@@ -3,4 +3,4 @@
   user:
     name: kenny
     state: present
-    groups: "sudo,docker"
+    groups: "sudo,dockergroup"
