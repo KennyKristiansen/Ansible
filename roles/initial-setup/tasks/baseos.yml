@@ -5,7 +5,6 @@
     upgrade: full
     cache_valid_time: 3600
 
-
 - name: Install required system packages
   package:
     - apt-transport-https
@@ -16,7 +15,6 @@
     - virtualenv
     - python3-setuptools
   state: latest
-
 
 - name: Add Docker GPG apt Key
   apt_key:
