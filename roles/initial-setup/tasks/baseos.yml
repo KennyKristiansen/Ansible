@@ -65,7 +65,7 @@
   #    - iotop                    # Used to view IO bottlenecks
   #    - jq                       # JSON processor for transforming JSON files
   #    - lynx                     # Textbrowser for WWW
-      - state: latest
+    state: latest
   async: 120
   poll: 1  
 
