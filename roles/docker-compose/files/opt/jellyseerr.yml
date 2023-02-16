@@ -10,5 +10,6 @@ services:
       - 5055:5055
     volumes:
       - /mnt/appdata/jellyseerr/config:/app/config
-      - /mnt:/mnt
+      - /mnt/storage/tv:/data/tvshows
+      - /mnt/storage/movies:/data/movies
     restart: unless-stopped     
