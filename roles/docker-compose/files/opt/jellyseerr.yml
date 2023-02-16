@@ -1,0 +1,13 @@
+---
+version: "3"
+
+services:
+  overseerr:
+    image: fallenbagel/jellyseerr:latest
+    container_name: jellyseerr
+    env_file: ../etc/user.env
+    ports:
+      - 5055:5055
+    volumes:
+      - /mnt/appdata/jellyseerr/config:/app/config
+    restart: unless-stopped     
