@@ -6,6 +6,8 @@ services:
     image: fallenbagel/jellyseerr:latest
     container_name: jellyseerr
     env_file: ../etc/user.env
+    environment:
+      - JELLYFIN_PublishedServerUrl=http://jellyfin:8096
     ports:
       - 5055:5055
     volumes:
