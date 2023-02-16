@@ -10,4 +10,5 @@ services:
       - 5055:5055
     volumes:
       - /mnt/appdata/jellyseerr/config:/app/config
+      - /mnt:/mnt
     restart: unless-stopped     
