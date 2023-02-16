@@ -5,18 +5,17 @@
     upgrade: full
     cache_valid_time: 3600
 
-
 - name: Install required system packages
   package:
-    - apt-transport-https
-    - ca-certificates
-    - curl
-    - software-properties-common
-    - python3-pip
-    - virtualenv
-    - python3-setuptools
-  state: latest
-
+    name:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - software-properties-common
+      - python3-pip
+      - virtualenv
+      - python3-setuptools
+    state: latest
 
 - name: Add Docker GPG apt Key
   apt_key:
@@ -30,9 +29,10 @@
 
 - name: Update apt and install docker-ce
   package:
-    - docker-ce
-    - docker-compose
-  state: latest
+    name:
+      - docker-ce
+      - docker-compose
+    state: latest
 
 
 - name: Install Docker module for Python
@@ -41,30 +41,31 @@
     
 - name: Install system packages
   package:
-    - curl
-    - glances                   # Monitoring tool 
-    - git
-    - mc                        # Fileviewer
-    - wget
-    - openssh-server
-    - ncdu                      # Overview of disk usage
-    - nmap
-    - python3
-    - sudo
-    - tree                      # Replacement of ls command for a tree structured view
-    - tmux                      # Run multiple terminal sessions at once
-    - net-tools                 # Install useful networking tools
-#    - bash-completion    
-#    - reptyr                   # Take over process from new terminal
-#    - screen                   # Control multiple terminals from one
-#    - smartmontools            # Test hardrives and their SMART statistics
-#    - xfsprogs                 # Utilities for managing the XFS filesystem 
-#    - htop                     # Used to view processes
-#    - iftop                    # Used to view network bandwidth
-#    - iotop                    # Used to view IO bottlenecks
-#    - jq                       # JSON processor for transforming JSON files
-#    - lynx                     # Textbrowser for WWW
-    - state: latest
+    name:
+      - curl
+      - glances                   # Monitoring tool 
+      - git
+      - mc                        # Fileviewer
+      - wget
+      - openssh-server
+      - ncdu                      # Overview of disk usage
+      - nmap
+      - python3
+      - sudo
+      - tree                      # Replacement of ls command for a tree structured view
+      - tmux                      # Run multiple terminal sessions at once
+      - net-tools                 # Install useful networking tools
+  #    - bash-completion    
+  #    - reptyr                   # Take over process from new terminal
+  #    - screen                   # Control multiple terminals from one
+  #    - smartmontools            # Test hardrives and their SMART statistics
+  #    - xfsprogs                 # Utilities for managing the XFS filesystem 
+  #    - htop                     # Used to view processes
+  #    - iftop                    # Used to view network bandwidth
+  #    - iotop                    # Used to view IO bottlenecks
+  #    - jq                       # JSON processor for transforming JSON files
+  #    - lynx                     # Textbrowser for WWW
+    state: latest
   async: 120
   poll: 1  
 
