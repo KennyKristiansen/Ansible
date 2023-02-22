@@ -4,7 +4,7 @@ services:
   plex:
     image: lscr.io/linuxserver/plex:latest
     container_name: plex
-    network_mode: host
+    #network_mode: host
     env_file: ../etc/user.env
     environment:
       - VERSION=docker
