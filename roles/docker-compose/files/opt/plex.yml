@@ -13,6 +13,8 @@ services:
       - /mnt/appdata/plex:/config
       - /mnt/storage/tv:/tv
       - /mnt/storage/movies:/movies
+    ports:
+      - 32400:32400
     restart: unless-stopped
 
   plexpy:
