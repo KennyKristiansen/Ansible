@@ -1,4 +1,7 @@
 ---
+### NOTES
+### Standard username: changeme@email.com
+### Standard password: MyPassword
 version: "2"
 services:
   mealie:
