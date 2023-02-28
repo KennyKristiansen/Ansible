@@ -9,7 +9,7 @@ services:
       - firefly_iii_upload:/var/www/html/storage/upload
     env_file: ../etc/user.env
     ports:
-      - 80:8090
+      - 89:8090
     depends_on:
       - db
   db:
