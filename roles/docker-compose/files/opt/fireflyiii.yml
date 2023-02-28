@@ -7,7 +7,7 @@ services:
     restart: always
     volumes:
       - firefly_iii_upload:/var/www/html/storage/upload
-    env_file: ../etc/user.env
+    env_file: ../etc/firefly.env
     ports:
       - 89:8090
     depends_on:
