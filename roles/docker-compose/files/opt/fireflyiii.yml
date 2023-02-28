@@ -5,11 +5,12 @@ services:
     image: fireflyiii/core:latest
     container_name: fireflyiii
     restart: always
+    network_mode: host
     volumes:
       - firefly_iii_upload:/var/www/html/storage/upload
     env_file: ../etc/firefly.env
     ports:
-      - 89:8090
+      - 80:8090
     depends_on:
       - db
   db:
@@ -17,6 +18,7 @@ services:
     hostname: fireflyiiidb
     container_name: mariadb
     restart: always
+    network_mode: host
     environment:
       - MYSQL_RANDOM_ROOT_PASSWORD=yes
       - MYSQL_USER=firefly
