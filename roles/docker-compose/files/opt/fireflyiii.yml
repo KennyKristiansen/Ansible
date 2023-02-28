@@ -15,6 +15,7 @@ services:
   db:
     image: mariadb    
     hostname: fireflyiiidb
+    container_name: mariadb
     restart: always
     environment:
       - MYSQL_RANDOM_ROOT_PASSWORD=yes
