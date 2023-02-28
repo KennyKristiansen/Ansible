@@ -1,8 +1,9 @@
 ---
-version: '3.3'
+version: "2"
 services:
-  app:
+  firefly:
     image: fireflyiii/core:latest
+    container_name: fireflyiii
     restart: always
     volumes:
       - firefly_iii_upload:/var/www/html/storage/upload
