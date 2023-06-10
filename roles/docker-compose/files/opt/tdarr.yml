@@ -21,7 +21,7 @@ services:
       - /docker/tdarr/server:/app/server
       - /docker/tdarr/configs:/app/configs
       - /docker/tdarr/logs:/app/logs
-      - /media:/media
+      - /mnt:/mnt
 
   tdarr-node:
     container_name: tdarr-node
