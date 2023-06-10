@@ -39,4 +39,4 @@ services:
     volumes:
       - /docker/tdarr/configs:/app/configs
       - /docker/tdarr/logs:/app/logs
-      - /media:/media
+      - /mnt:/mnt
