@@ -6,23 +6,20 @@ version: "2"
 services:
   mealie:
     container_name: mealie
-    image: hkotel/mealie:latest
+    image: ghcr.io/mealie-recipes/mealie:nightly
     restart: always
     ports:
-      - 9925:80
+      - 9925:9000
     env_file: ../etc/user.env
+    deploy:
+      resources:
+        limits:
+          memory: 1000M # 
     environment:
-      # Default Recipe Settings
-      - "RECIPE_PUBLIC:true"
-      - "RECIPE_SHOW_NUTRITION:true"
-      - "RECIPE_SHOW_ASSETS:true"
-      - "RECIPE_LANDSCAPE_VIEW:true"
-      - "RECIPE_DISABLE_COMMENTS:false"
-      - "RECIPE_DISABLE_AMOUNT:false"
-
-      # Gunicorn
-      - "WEB_CONCURRENCY:2"
-      # WORKERS_PER_CORE: 0.5
-      # MAX_WORKERS: 8
+    # Set Backend ENV Variables Here
+      - ALLOW_SIGNUP=true
+      - MAX_WORKERS=1
+      - WEB_CONCURRENCY=1
+      - BASE_URL=https://mealie.yourdomain.com
     volumes:
       - /mnt/appdata/mealie/config:/app/data

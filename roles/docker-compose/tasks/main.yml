@@ -1,11 +1,20 @@
 ---
-#- name: copy docker-compose.yml into position
-#  copy:
-#    src: "opt/"
-#    dest: "/opt/"
-#    owner: nobody
-#    group: nogroup
-#    mode: 0775
+- name: copy docker-compose.yml into position
+  copy:
+    src: "opt/"
+    dest: "/opt/"
+    owner: nobody
+    group: nogroup
+    mode: 0775
+
+- name: copy docker-compose.yml into position
+  copy:
+    src: "etc/"
+    dest: "/etc/"
+    owner: nobody
+    group: nogroup
+    mode: 0775
+  tags: compose
 
 # - name: OpenProject git clone
 #   ansible.builtin.git:
@@ -34,15 +43,25 @@
     group: dockergroup
     uid: 1050
 
+- name: Get compose files on remote machine
+  find:
+    paths: "/opt/"
+    patterns: "*.yml"
+  register: compose_files
+  tags: compose
+
 - name: Docker-compose up
   docker_compose:
+    pull: yes
     build: yes
     state: present
-    project_src: "opt/"
-    files: "{{ item }}"
+    project_src: "/opt/"
+    files: "{{ item.path | basename }}"
     remove_orphans: false
-  with_fileglob: 
-    - "opt/*.yml"
+  loop: "{{ compose_files.files }}"
+  loop_control:
+    label: "{{ item.path | basename }}"
+  tags: compose
   #async : 120
   #poll: 10
 
