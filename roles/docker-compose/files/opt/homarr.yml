@@ -7,6 +7,7 @@ services:
     restart: unless-stopped
     volumes:
       - /mnt/appdata/homarr/config:/app/data/configs
+      - /mnt/appdata/homarr/data:/data
       - /mnt/appdata/homarr/icons:/app/public/icons
       - /var/run/docker.sock:/var/run/docker.sock
     env_file: ../etc/user.env
