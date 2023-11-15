@@ -16,24 +16,23 @@
     mode: 0775
   tags: compose
 
-- name: Stable diffusion webui git clone
-  ansible.builtin.git:
-    repo: 'https://github.com/AbdBarho/stable-diffusion-webui-docker'
-    depth: 1
-    dest: ./etc/
-    tags: compose
+# - name: Stable diffusion webui git clone
+#   ansible.builtin.git:
+#     repo: "https://github.com/AbdBarho/stable-diffusion-webui-docker.git"
+#     clone: true
+#     dest: ./etc/
+#   tags: compose
 
 
-- name: Docker-compose stable diffusion up
-  docker_compose:
-    pull: yes
-    build: yes
-    profiles: download
-    state: present
-    project_src: "/opt/"
-    files: "{{ item.path | basename }}"
-    remove_orphans: false
-    tags: compose
+# - name: Docker-compose stable diffusion up
+#   docker_compose:
+#     pull: yes
+#     build: yes
+#     profiles: download
+#     state: present
+#     project_src: "/etc/"
+#     remove_orphans: false
+#   tags: compose
 
 
 # - name: OpenProject docker-compose up
