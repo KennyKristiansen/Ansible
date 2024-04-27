@@ -64,6 +64,16 @@
   register: compose_files
   tags: compose
 
+- name: Create a volume for n8n_data
+  docker_volume:
+    name: n8n_data
+  tags: compose
+
+- name: Create a volume for traefik_data
+  docker_volume:
+    name: traefik_data
+  tags: compose
+  
 - name: Docker-compose up
   docker_compose:
     pull: yes

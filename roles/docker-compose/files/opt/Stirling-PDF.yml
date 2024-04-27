@@ -4,7 +4,7 @@ services:
   stirling-pdf:
     image: frooodle/s-pdf:latest
     ports:
-      - '8080:8080'
+      - '8083:8080'
     env_file: ../etc/user.env
     volumes:
       - /location/of/trainingData:/usr/share/tessdata #Required for extra OCR languages
